@@ -133,7 +133,12 @@
           <ui-button bindTap="stepProgress(+10)"> + </ui-button>
         </ui-col>
       </ui-row>
-      
+      pop icon
+      <ui-pop-icon ui:model="toggleSwitch">
+        <ui-pop-icon-item item-color="#ff6767" top="0" left="-90">
+          hi
+        </ui-pop-icon-item>
+      </ui-pop-icon>
     </ui-view>
   </ui-page>
 </template>
