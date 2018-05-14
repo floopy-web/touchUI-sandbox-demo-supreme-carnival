@@ -44,14 +44,14 @@
       </ui-row>
       <ui-row border-bottom border-top height="80">
         <ui-col vertical-align="middle" align="left"> 
-          <ui-view> Left {toggleSwitches[0]}
+          <ui-view> Left {{toggleSwitches[0]}}
             <ui-switch ui:model="toggleSwitches[0]" bindchange="toggle($event, 0)"></ui-switch>
           </ui-view>
         </ui-col>
-        <ui-col vertical-align="middle" align="center"> Center: {toggleSwitches[1]}
+        <ui-col vertical-align="middle" align="center"> Center: {{toggleSwitches[1]}}
           <ui-switch ui:model="toggleSwitches[1]" bindchange="toggle($event, 1)"></ui-switch>
         </ui-col>
-        <ui-col vertical-align="middle" align="right"> Right: {toggleSwitches[2]}
+        <ui-col vertical-align="middle" align="right"> Right: {{toggleSwitches[2]}}
           <ui-switch ui:model="toggleSwitches[2]" bindchange="toggle($event, 2)"></ui-switch>
         </ui-col>
       </ui-row> 
