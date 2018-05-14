@@ -78,13 +78,42 @@
       <ui-popover ref="popover"> 
         <ui-view> 
           <ui-view bindTap="hidePopover">
-            Item 1
+            PopItem 1
           </ui-view>
           <ui-view>
             Item 2
           </ui-view>
         </ui-view>
       </ui-popover>
+
+      ui picker selector
+      <ui-picker 
+        title="UIPicker title" 
+        range="{{ uiPickerList}}" 
+        value="{{uiPickerValue}}"
+      >
+      </ui-picker>
+      Icon
+      <ui-icon type="user" size=24> Icon</ui-icon>
+
+      <ui-row>
+        <ui-col align="center" vertical-align="middle">
+          <ui-icon type="user" size="16"></ui-icon>
+        </ui-col>
+        <ui-col align="center" vertical-align="middle">
+          <ui-icon type="user" size="24"></ui-icon>
+        </ui-col>
+        <ui-col align="center" vertical-align="middle">
+          <ui-icon type="user" size="32"></ui-icon>
+        </ui-col>
+        <ui-col align="center" vertical-align="middle">
+          <ui-icon type="user" size="40"></ui-icon>
+        </ui-col>
+        <ui-col align="center" vertical-align="middle">
+          <ui-icon type="user" size="48"></ui-icon>
+        </ui-col>
+      </ui-row>
+      Icons
     </ui-view>
   </ui-page>
 </template>
@@ -96,6 +125,8 @@ export default {
   },
   data() {
     return {
+      uiPickerList: [1, 2, 3, 4, 5, 200, 9001, 15003],
+      uiPickerValue: 1,
       toggleSwitch: false,
       toggleSwitches: [
         false, 
@@ -178,12 +209,15 @@ export default {
     };
   },
   methods: {
+    // ui switch toggles
     toggle(event, switchIndex) {
       console.log("new-page::", event, switchIndex);
     },
+    // ui ruler
     changedRulerValue(event) {
       console.log("new-page::Ruler: ", event);
     },
+    // Popover
     showPopover1(event) {
       this.$refs.popover.showPopover({ 
         el: event.target, position: 'bottom'
@@ -197,6 +231,9 @@ export default {
     hidePopover() {
       this.$refs.popover.hidePopover();
     }
+
+    // multi selector / picker
+    
   },
   mounted() {
     console.log("new-page::mounted::");
