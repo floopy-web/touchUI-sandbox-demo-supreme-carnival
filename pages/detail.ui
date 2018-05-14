@@ -1,7 +1,7 @@
 <template>
   <ui-page>
     <ui-view class="content" style="{{{ height:contentHeight+'px' }}}">
-      Hello UILeader!
+      Hello UILeader!.
     </ui-view>
   </ui-page>
 </template>

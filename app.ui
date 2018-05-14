@@ -3,7 +3,8 @@ export default {
   config: {
     "pages": [
       "pages/index",
-      "pages/detail"
+      "pages/detail",
+      "pages/new-page"
     ],
     "theme": {
       "theme-color": "#3399ff"
@@ -28,6 +29,12 @@ export default {
         {
           "pagePath": "pages/user",
           "iconName": "user",
+          "text": "我的"
+        },
+        {
+          "pagePath": "pages/new-page",
+          "iconName": "user",
+          selectedIconName: "arrow-left",
           "text": "我的"
         }
       ]

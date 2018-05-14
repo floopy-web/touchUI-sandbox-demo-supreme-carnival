@@ -1,0 +1,209 @@
+<!--test sandbox page-->
+<template>
+  <ui-page>
+    <ui-view class="content" style="{{{ height:300+'px' }}}">
+      Hello world! new page.
+      Pagination swiper
+      <ui-swiper pagination class="swiper" indicator-dots=true autoplay=true>
+       <ui-swiper-item>
+        <ui-view class="swiper_item">
+          <ui-image src="{{ items2[0].src }}"></ui-image>
+          <ui-image src="{{ items2[1].src }}"></ui-image>
+          <ui-image src="{{ items2[2].src }}" ></ui-image>
+        </ui-view>
+      </ui-swiper-item>
+      <ui-swiper-item>
+        <ui-view class="swiper_item">
+          <ui-image src="{{ items2[4].src }}"></ui-image>
+          <ui-image src="{{ items2[5].src }}"></ui-image>
+          <ui-image src="{{ items2[6].src }}" ></ui-image>
+        </ui-view>
+      </ui-swiper-item>
+      <ui-swiper-item>
+        <ui-view class="swiper_item">
+          <ui-image src="{{ items2[6].src }}"></ui-image>
+          <ui-image src="{{ items2[7].src }}"></ui-image>
+          <ui-image src="{{ items2[8].src }}" ></ui-image>
+        </ui-view>
+      </ui-swiper-item>
+      <ui-swiper-item>
+        <ui-view class="swiper_item">
+          <ui-image src="{{ items2[9].src }}"></ui-image>
+          <ui-image src="{{ items2[10].src }}"></ui-image>
+          <ui-image src="{{ items2[11].src }}" ></ui-image>
+        </ui-view>
+      </ui-swiper-item>
+      </ui-swiper>
+
+      <!--  -->
+
+      <!-- Form elements -->
+      Form elements
+      <ui-row border-bottom border-top>
+        Row with 3 columns
+      </ui-row>
+      <ui-row border-bottom border-top height="80">
+        <ui-col vertical-align="middle" align="left"> 
+          <ui-view> Left {toggleSwitches[0]}
+            <ui-switch ui:model="toggleSwitches[0]" bindchange="toggle($event, 0)"></ui-switch>
+          </ui-view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center"> Center: {toggleSwitches[1]}
+          <ui-switch ui:model="toggleSwitches[1]" bindchange="toggle($event, 1)"></ui-switch>
+        </ui-col>
+        <ui-col vertical-align="middle" align="right"> Right: {toggleSwitches[2]}
+          <ui-switch ui:model="toggleSwitches[2]" bindchange="toggle($event, 2)"></ui-switch>
+        </ui-col>
+      </ui-row> 
+      
+      <ui-view> testView </ui-view>
+      <ui-switch ui:model=toggleSwitch></ui-switch>
+      <ui-button> toggleSwitch value is: {{toggleSwitch}}</ui-button>
+      {{toggleSwitch}}
+      _Form elements.
+      bottom
+
+      <ui-divider> ink-bar </ui-divider>
+      <ui-tabs index="1">
+        <ui-tab>1</ui-tab>
+        <ui-tab>2</ui-tab>
+        <ui-tab>3</ui-tab>
+      </ui-tabs>
+    </ui-view>
+  </ui-page>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: "test sandbox page"
+  },
+  data() {
+    return {
+      toggleSwitch: false,
+      toggleSwitches: [
+        false, 
+        false,
+        true ],
+      items2: [
+        {
+          title: "Got ",
+          score: 7.8,
+          src:
+            "http://images.uileader.com/20171103/dd760606-ab0f-45b2-a030-bab65e0b2a56.jpg"
+        },
+        {
+          title: "MISS SLOANE",
+          score: 8.9,
+          src:
+            "http://images.uileader.com/20171103/14feebf0-3061-4681-bb45-fa27d76af891.jpg"
+        },
+        {
+          title: "gifted",
+          score: 8.8,
+          src:
+            "http://images.uileader.com/20171103/7d89142f-b88d-4001-8196-7fd6834c2630.jpg"
+        },
+        {
+          title: "BORN LEADER",
+          score: 9.2,
+          src:
+            "http://images.uileader.com/20171103/5fce28ba-fd02-48cb-a1c2-ce0ff3801844.jpg"
+        },
+        {
+          title: "Big Little Lies",
+          score: 7.1,
+          src:
+            "http://images.uileader.com/20171103/2cdb945d-349d-4d19-8347-629675adde76.jpg"
+        },
+        {
+          title: "MANCHESTER SEA",
+          score: 9.7,
+          src:
+            "http://images.uileader.com/20171103/727a3953-fafb-44e7-8fd8-92e84e11442f.jpg"
+        },
+        {
+          title: "金刚",
+          score: 8.8,
+          src:
+            "http://images.uileader.com/20171103/4ac53f4c-1e62-40ce-87d9-2b7638cf00be.jpg"
+        },
+        {
+          title: "THE CIRCLE",
+          score: 8.3,
+          src:
+            "http://images.uileader.com/20171103/b13d8fbd-bb0e-4510-b680-4a559b79407c.jpg"
+        },
+        {
+          title: "UNITED KINDOM",
+          score: 8.6,
+          src:
+            "http://images.uileader.com/20171103/f5d59af6-c4af-4faa-b36a-3473b78a7612.jpg"
+        },
+        {
+          title: "UNITED KINDOM",
+          score: 8.6,
+          src:
+            "http://images.uileader.com/20171103/aa1b5858-8d6d-4e8b-9723-87fd802c78d9.jpg"
+        },
+        {
+          title: "UNITED KINDOM",
+          score: 9.3,
+          src:
+            "http://images.uileader.com/20171103/6439465c-bac6-4d4f-bfd2-4376d0465b95.jpg"
+        },
+        {
+          title: "UNITED KINDOM",
+          score: 9.6,
+          src:
+            "http://images.uileader.com/20171103/9e65711d-c1dc-450f-878a-fab40bd09b55.jpg"
+        }
+      ]
+    };
+  },
+  methods: {
+    toggle(event, switchIndex) {
+      console.log(event, switchIndex);
+    },
+  },
+  mounted() {
+    console.log("new-page::mounted::");
+  }
+};
+</script>
+
+<style lang="less">
+.swiper {
+  .ui-swiper-indicator {
+    bottom: 0;
+  }
+  .swiper_item {
+    display: flex;
+    height: 20vh;
+    .ui-image-container {
+      flex: 1;
+      margin-right: 5px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  .flex-wrap {
+    display: flex;
+    background-color: #ff00ff;
+    width: 300px;
+    margin: 0 auto;
+  }
+  .flex-item {
+    width: 100px;
+    height: 100px;
+    color: #ff0000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .bc_red { background-color: darkorange}
+  .bc_blue { background-color: cadetblue}
+  .bc_green { background-color: forestgreen; background: firebrick}
+}
+</style>
