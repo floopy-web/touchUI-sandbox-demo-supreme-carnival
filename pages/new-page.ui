@@ -114,7 +114,27 @@
           <ui-icon type="user" size="48"></ui-icon>
         </ui-col>
       </ui-row>
-      Icons &#x260e; 
+      _Icon &#x260e; 
+
+      <ui-view align="center">
+        <ui-circular radius=100 color="#1ecff5" value="{{progressValue}}">
+          <ui-view>
+           <ui-view>
+             progress {{progressValue}}
+           </ui-view>
+          </ui-view>  
+        </ui-circular>
+      </ui-view>
+      <!-- Buttons to test progress -->
+      <ui-row height="16">
+        <ui-col vertical-align="middle" align="left" space-right="10">
+          <ui-button bindTap="stepProgress(-10)"> - </ui-button>
+        </ui-col>
+        <ui-col vertical-align="middle" align="right" space-right="10">
+          <ui-button bindTap="stepProgress(+10)"> + </ui-button>
+        </ui-col>
+      </ui-row>
+      
     </ui-view>
   </ui-page>
 </template>
@@ -126,13 +146,11 @@ export default {
   },
   data() {
     return {
+      progressValue: 10,
       uiPickerList: [1, 2, 3, 4, 5, 200, 9001, 15003],
       uiPickerValue: 1,
       toggleSwitch: false,
-      toggleSwitches: [
-        false, 
-        false,
-        true ],
+      toggleSwitches: [false, false, true],
       items2: [
         {
           title: "Got ",
@@ -210,6 +228,16 @@ export default {
     };
   },
   methods: {
+    stepProgress(value) {
+      console.log("new-page::progress::", this.progressValue, "+", value);
+      this.progressValue += value;
+
+      if (this.progressValue > 100) {
+        this.progressValue = 0;
+      } else if (this.progressValue < 0) {
+        this.progressValue = 100;
+      }
+    },
     // ui switch toggles
     toggle(event, switchIndex) {
       console.log("new-page::", event, switchIndex);
@@ -220,21 +248,23 @@ export default {
     },
     // Popover
     showPopover1(event) {
-      this.$refs.popover.showPopover({ 
-        el: event.target, position: 'bottom'
+      this.$refs.popover.showPopover({
+        el: event.target,
+        position: "bottom"
       });
     },
-    showPopover2 (event) {
-      this.$refs.popover.showPopover({ 
-          el: event.target, position: 'top', effect:'scale' 
-        });
+    showPopover2(event) {
+      this.$refs.popover.showPopover({
+        el: event.target,
+        position: "top",
+        effect: "scale"
+      });
     },
     hidePopover() {
       this.$refs.popover.hidePopover();
     }
 
     // multi selector / picker
-    
   },
   mounted() {
     console.log("new-page::mounted::");
@@ -272,8 +302,15 @@ export default {
     justify-content: center;
     align-items: center;
   }
-  .bc_red { background-color: darkorange}
-  .bc_blue { background-color: cadetblue}
-  .bc_green { background-color: forestgreen; background: firebrick}
+  .bc_red {
+    background-color: darkorange;
+  }
+  .bc_blue {
+    background-color: cadetblue;
+  }
+  .bc_green {
+    background-color: forestgreen;
+    background: firebrick;
+  }
 }
 </style>
