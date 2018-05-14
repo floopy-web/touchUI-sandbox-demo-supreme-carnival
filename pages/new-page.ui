@@ -64,6 +64,7 @@
       bottom
 
       <ui-divider> ink-bar </ui-divider>
+
       <ui-tabs index=0>
         <ui-tab>1</ui-tab>
         <ui-tab>2</ui-tab>
@@ -89,7 +90,7 @@
       ui picker selector
       <ui-picker 
         title="UIPicker title" 
-        range="{{ uiPickerList}}" 
+        range="{{uiPickerList}}" 
         value="{{uiPickerValue}}"
       >
       </ui-picker>
@@ -113,7 +114,7 @@
           <ui-icon type="user" size="48"></ui-icon>
         </ui-col>
       </ui-row>
-      Icons
+      Icons &#x260e; 
     </ui-view>
   </ui-page>
 </template>
@@ -248,7 +249,7 @@ export default {
   }
   .swiper_item {
     display: flex;
-    height: 20vh;
+    height: 50vw;
     .ui-image-container {
       flex: 1;
       margin-right: 5px;
