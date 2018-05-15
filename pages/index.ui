@@ -12,6 +12,7 @@
         <ui-button type="secondary" bindTap="showLoadingIndicator()"> Show loading indicator </ui-button>
         <!-- Buggy. <ui-button type="secondary" bindTap="showDialog()"> Show dialog </ui-button> -->
         <ui-button type="secondary" bindTap="showActionSheet()"> Show ActionSheet </ui-button>
+        <ui-button bindTap="changeNavBarColour()"> Change NavBar colour </ui-button>
 
       </ui-view>
   </ui-page>
@@ -20,7 +21,7 @@
 <script>
 export default {
   config: {
-    navigationBarTitleText: "首页",
+    navigationBarTitleText: "Home 首页",
     backgroundColor: "#F4F4F4",
     navigationBarTextStyle: "black"
   },
@@ -34,6 +35,9 @@ export default {
           ui.showAlert({
             title: "PageLoadedTitle Alert",
             content: getData
+          });
+          ui.setNavigationBarColor({
+            gradient: "linear-gradient(85deg, #AABB44, #7766FF)"
           });
         }
       },
@@ -49,6 +53,12 @@ export default {
     },
     completeHandler(message) {
       console.log("Complete", message);
+    },
+    changeNavBarColour() {
+      console.log("changeNavBarColour::");
+      ui.setNavigationBarColor({
+        gradient: "linear-gradient(45deg, #FF8E00, #FF4F00)"
+      });
     },
     showActionSheet() {
       console.log("showActionSheet");

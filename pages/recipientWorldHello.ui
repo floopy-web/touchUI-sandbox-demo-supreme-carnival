@@ -23,15 +23,10 @@ export default {
         handle: () => {
           console.log("recipientWorldHello:: pageLoad::");
           // Get params from url
-          // const getData = ui.getQuery(); 
-          ui.showAlert({
-            title: "PageLoadedTitle Alert",
-            content: "pageLoaded"
-          });
-          ui.showToast({
-            title: "Page loaded toast",
-            icon: "success",
-            duration: 300
+          // const getData = ui.getQuery();
+
+          ui.setNavigationBarColor({
+            gradient: "linear-gradient(135deg, #AABB44, #7766FF)"
           });
         }
       },
