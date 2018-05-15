@@ -1,13 +1,17 @@
 <template>
-  <ui-page>
+  <ui-page page-load="{{ pageLoad }}">
       <ui-view class="sliderContent" ui:if="{{isShow}}">
         <ui-slider width="260"></ui-slider>      
       </ui-view>
       <ui-view class="buttonContent">
         <ui-button type="primary" bindtap="sliderShow">slider 创建滑动条控件</ui-button>
         <ui-button type="primary" bindtap="navToPage('/pages/detail')">{{ buttonText }}</ui-button>
-        <ui-button type="primary" bindtap="navToPage('/pages/new-page')"> go to new Test Page </ui-button>
-        <ui-button type="primary" bindtap="navToPage('/pages/helloWorldPage')"> go to new Test Page </ui-button>
+        <ui-button type="primary" bindtap="redirectToPage('/pages/new-page')">RedirectTo new-page</ui-button>
+        <ui-button type="primary" bindtap="navToPage('/pages/helloWorldPage')"> Nav go to new Test Page </ui-button>
+        <ui-button type="primary" bindtap="switchTab('/pages/helloWorldPage')"> switchTab to new Test Page </ui-button>
+        <ui-button type="secondary" bindTap="showLoadingIndicator()"> Show loading indicator </ui-button>
+        <!-- Buggy. <ui-button type="secondary" bindTap="showDialog()"> Show dialog </ui-button> -->
+        <ui-button type="secondary" bindTap="showActionSheet()"> Show ActionSheet </ui-button>
 
       </ui-view>
   </ui-page>
@@ -22,19 +26,70 @@ export default {
   },
   data() {
     return {
+      pageLoad: {
+        trigger: "always",
+        handle: () => {
+          console.log("index:: pageLoad::");
+          const getData = ui.getQuery();
+          ui.showAlert({
+            title: "PageLoadedTitle Alert",
+            content: getData
+          });
+        }
+      },
       buttonText: "ButtontextNav 界面跳转",
       isShow: false
     };
   },
   methods: {
+    // Pre-made completion debug messages
+    statusHandler(status, message) {
+      // E.g. status Success/Fail.
+      console.log("status", message);
+    },
+    completeHandler(message) {
+      console.log("Complete", message);
+    },
+    showActionSheet() {
+      console.log("showActionSheet");
+      ui.showActionSheet("actionsheettest");
+    },
     sliderShow() {
       this.isShow = true;
     },
-    navToPage(page, params) {
-      console.log("index::navToPage::", page, params);
+    // Navigation functions don't work if page is a tabPage.
+    navToPage(pageUrl, params) {
+      console.log("index::navToPage::", pageUrl, params);
       ui.navigateTo({
-        url: page
+        url: pageUrl,
+        success: this.statusHandler("Success", "nav " + pageUrl),
+        fail: this.statusHandler("Fail", "nav " + pageUrl),
+        complete: this.statusHandler("Completed nav " + pageUrl)
       });
+    },
+    redirectToPage(pageUrl, params) {
+      console.log("index:: navToPage::", pageUrl, params);
+      ui.redirectTo({
+        url: pageUrl,
+        success: this.statusHandler("Success", "redirect " + pageUrl),
+        fail: this.statusHandler("Fail", "redirect " + pageUrl),
+        complete: this.statusHandler("Completed redirect " + pageUrl)
+      });
+    },
+    switchTab(pageUrl, params) {
+      console.log("index:: switchTab::");
+      ui.switchTab({
+        url: pageUrl
+      });
+    },
+    // Shows Loading popbox until ui.hideLoading() is called
+    showLoadingIndicator() {
+      ui.showLoading({
+        text: "Loading for 3 seconds..."
+      });
+      setTimeout(res => {
+        ui.hideLoading();
+      }, 3000);
     }
   },
   mounted() {

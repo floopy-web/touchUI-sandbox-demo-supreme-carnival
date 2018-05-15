@@ -1,6 +1,6 @@
 <!--recipient of helloWorld page's hello object passed through nav.-->
 <template>
-  <ui-page class="pageContent">
+  <ui-page page-load="{{ pageLoad }}" class="pageContent">
     <ui-view class="viewContent">
       <ui-input ui:model="inputPlaceText"></ui-input>
       <ui-button type="secondary" bindtap="testRequest" plain="true">
@@ -14,11 +14,27 @@
 <script>
 export default {
   config: {
-    navigationBarTitleText:
-      "recipient of helloWorld page's test hello object passed through nav."
+    navigationBarTitleText: "Test Google Places Autocomplete"
   },
   data() {
     return {
+      pageLoad: {
+        trigger: "always",
+        handle: () => {
+          console.log("recipientWorldHello:: pageLoad::");
+          // Get params from url
+          // const getData = ui.getQuery(); 
+          ui.showAlert({
+            title: "PageLoadedTitle Alert",
+            content: "pageLoaded"
+          });
+          ui.showToast({
+            title: "Page loaded toast",
+            icon: "success",
+            duration: 300
+          });
+        }
+      },
       inputPlaceText: "",
       autocompleteResponseText: ""
     };
@@ -27,38 +43,45 @@ export default {
     testRequest() {
       console.log("httprequest");
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'https://maps.googleapis.com/maps/api/place/autocomplete/json');
-      console.log("testRequest:: searching for places close to", this.inputPlaceText)
+      xhr.open(
+        "GET",
+        "https://maps.googleapis.com/maps/api/place/autocomplete/json"
+      );
+      console.log(
+        "testRequest:: searching for places close to",
+        this.inputPlaceText
+      );
       const httpPlacesAPIDataParas = {
-          input: this.inputPlaceText, // e.g.  "Brisbane",
-          language: "en",
-          key: "AIzaSyBFGkLSAHdWvjFH870eSyhWFawW_F78enU"
-      }
-      const httpRequestInput = {        
+        input: this.inputPlaceText, // e.g.  "Brisbane",
+        language: "en",
+        key: "AIzaSyBFGkLSAHdWvjFH870eSyhWFawW_F78enU"
+      };
+      const httpRequestInput = {
         url: "https://maps.googleapis.com/maps/api/place/autocomplete/json",
-        header: { 'Access-Control-Allow-Origin': '*' }, // doesn't do anything
-        method: 'GET',
+        header: { "Access-Control-Allow-Origin": "*" }, // doesn't do anything
+        method: "GET",
         data: httpPlacesAPIDataParas,
-        success: (res) => {
-          console.log("response success data predictions", res.data.predictions);
-          this.autocompleteResponseText = JSON.stringify(res.data.predictions);
+        success: res => {
+          console.log(
+            "response success data predictions",
+            res.data.predictions
+          );
           // Iterate and get each description from the Google Places predictions array.
-          const predictionsReadableDescription = res.data.predictions
-            .map((prediction) => {
+          const predictionsReadableDescription = res.data.predictions.map(
+            prediction => {
               return prediction.description;
-          });
-          this.autocompleteResponseText = "Predictions' descriptions:\n" + predictionsReadableDescription;
+            }
+          );
+          this.autocompleteResponseText = predictionsReadableDescription;
         },
-        fail: (res) => {
+        fail: res => {
           console.log("GooglePlaces request failed");
-
         },
-        complete: (res) => {
+        complete: res => {
           console.log("response data complete", res);
         }
       };
       ui.request(httpRequestInput);
-      
     }
   },
   mounted() {
