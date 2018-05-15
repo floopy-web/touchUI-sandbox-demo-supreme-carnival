@@ -1,23 +1,125 @@
 <!--11SlidingMenuContainerSwipeOut-->
 <template>
   <ui-page>
-
+    <ui-icon mode="wechat" type="success" size="24"></ui-icon>
+    <ui-icon mode="wechat" type="info" size="24"></ui-icon>
+    <ui-icon mode="wechat" type="info-circle" size="24"></ui-icon>
+    <ui-icon mode="wechat" type="warn" size="24"></ui-icon>
+    <ui-icon mode="wechat" type="waiting" size="24"></ui-icon>
+    <ui-icon mode="wechat" type="waiting-circle" size="24"></ui-icon>
+    <ui-icon mode="wechat" type="safe-success" size="24"></ui-icon>
+    <ui-icon mode="wechat" type="safe_warn" size="24"></ui-icon>
+    <ui-icon mode="wechat" type="success-circle" size="24"></ui-icon>
+    <ui-icon mode="wechat" type="success-no-circle" size="24"></ui-icon>
+    <ui-icon mode="wechat" type="circle" size="24"></ui-icon>
+    <ui-icon mode="wechat" type="download" size="24"></ui-icon>
+    <ui-icon mode="wechat" type="cancel" size="24"></ui-icon>
+    <ui-icon mode="wechat" type="search" size="24"></ui-icon>
+    <ui-icon mode="wechat" type="clear" size="24"></ui-icon>
+    <ui-icon mode="wechat" type="ring" size="24"></ui-icon>
+    Icons
+    
+    <ui-view>
+      <ui-view class="sample_title">图标按钮</ui-view>
+      <ui-swipe-out height="60" operate-width="180" bindchange="changeHandler2(index)" value="{{item.switcher}}" ui:for="{{list2}}">
+          <ui-view slot="content">
+              <ui-row height="60" class="tel_list" border-bottom>
+                  <ui-col vertical-align="middle" align="left" space-left="15">
+                      <ui-view class="name">{{ item.name }}</ui-view>
+                      <ui-view class="address">{{ item.address }}</ui-view>
+                  </ui-col>
+                  <ui-col vertical-align="middle" align="right" space-right="15">
+                      <ui-view class="time">{{ item.time }}</ui-view>
+                  </ui-col>
+              </ui-row>
+          </ui-view>
+          <ui-view slot="operate">
+              <ui-view class="dome_operate">
+                  <ui-row height="60">
+                      <ui-col bindtap="tap('QQ')" vertical-align="middle" align="center">
+                          <ui-icon type="QQ" size="24" color="#fff"></ui-icon>
+                      </ui-col>
+                      <ui-col bindtap="tap('微博')" vertical-align="middle" align="center">
+                          <ui-icon type="weibo" size="24" color="#fff"></ui-icon>
+                      </ui-col>
+                      <ui-col bindtap="tap('微信')" vertical-align="middle" align="center">
+                          <ui-icon type="wexin" size="24" color="#fff"></ui-icon>
+                      </ui-col>
+                  </ui-row>
+              </ui-view>
+          </ui-view>
+      </ui-swipe-out>
+    </ui-view>
   </ui-page>
 </template>
 
 <script>
+// slideView.js
 export default {
-  config: {
-    navigationBarTitleText: "11SlidingMenuContainerSwipeOut"
-  },
   data() {
-    return {}
+    return {
+      list2: [
+        {
+          switcher: "off",
+          name: "阿强",
+          address: "北京",
+          time: "2010/12/1",
+          buttonText: "删除"
+        },
+        {
+          switcher: "off",
+          name: "安生",
+          address: "北京",
+          time: "2010/11/13",
+          buttonText: "删除"
+        },
+        {
+          switcher: "off",
+          name: "010-52013145",
+          address: "北京",
+          time: "2010/09/13",
+          buttonText: "删除"
+        }
+      ],
+      items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      el: 0,
+      el2: 0
+    };
   },
-  methods: {},
-  mounted() {}
-}
+  methods: {
+    tap(message) {
+      ui.showToast({ title: message });
+    },
+    changeHandler2(index) {
+      if (this.el2 !== index) {
+        if (this.el2 !== undefined) {
+          this.list2[this.el2].switcher = "off";
+        }
+        this.list2[index].switcher = "on";
+        this.el2 = index;
+      }
+    }
+  }
+};
 </script>
 
 <style lang="less">
-
+.tel_list {
+  background-color: #fff;
+  .name {
+    color: #0b0b0b;
+    font-size: 16px;
+  }
+  .address {
+    color: #101010;
+    font-size: 12px;
+  }
+  .time {
+    color: #afafaf;
+    font-size: 12px;
+  }
+}
+.dome_operate {
+  background: #3ecbe8;
+}
 </style>

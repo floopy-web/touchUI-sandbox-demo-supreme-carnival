@@ -94,6 +94,30 @@
         </ui-col>
       </ui-row>
     </ui-view>
+     .
+     
+    <ui-view>
+      <ui-row space-bottom="20">
+        <ui-col span="4" space-right="5">
+          <div class="column-content" style="height:85px">1</div>
+        </ui-col>
+        <ui-col span="8">
+          <ui-row>
+            <ui-col>
+              <div class="column-content">2</div>
+            </ui-col>
+          </ui-row>
+          <ui-row space-top="5">
+            <ui-col space-right="5">
+              <div class="column-content">3</div>
+            </ui-col>
+            <ui-col>
+              <div class="column-content">4</div>
+            </ui-col>
+          </ui-row>
+        </ui-col>
+      </ui-row>
+    </ui-view>
   </ui-page>
 </template>
 
@@ -103,10 +127,16 @@ export default {
     navigationBarTitleText: "8RasterLayoutRowCol"
   },
   data() {
-    return {};
+    return {
+      
+    };
   },
-  methods: {},
-  mounted() {}
+  methods: {
+
+  },
+  mounted() {
+
+  }
 };
 </script>
 
