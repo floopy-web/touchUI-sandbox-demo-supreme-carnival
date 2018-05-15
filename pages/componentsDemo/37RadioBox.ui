@@ -1,7 +1,23 @@
 <!--37RadioBox-->
 <template>
   <ui-page>
-
+    <ui-view class="sample_title">文字放在左边</ui-view>
+<ui-view class="demo-content">
+  <ui-radio-group>
+    <ui-label class="radio">
+      选项1 <ui-radio value="3"/>
+    </ui-label>
+    <ui-label class="radio">
+      选项2 <ui-radio value="6" checked />
+    </ui-label>
+    <ui-label class="radio">
+      选项3 <ui-radio value="9" />
+    </ui-label>
+    <ui-label class="radio">
+      选项4 <ui-radio value="12" disabled/>
+    </ui-label>
+  </ui-radio-group>
+</ui-view>
   </ui-page>
 </template>
 
@@ -11,11 +27,11 @@ export default {
     navigationBarTitleText: "37RadioBox"
   },
   data() {
-    return {}
+    return {};
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
