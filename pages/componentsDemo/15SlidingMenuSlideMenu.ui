@@ -1,7 +1,39 @@
 <!--15SlidingMenuSlideMenu-->
 <template>
   <ui-page>
+      <ui-view id="ui-app">
+        <ui-slide-menu width="280" threshold="30" touch="{{ pageConfig.touchSlideMenu }}" ui:model="showSlideMenu">
 
+          <ui-view slot="menu" class="menu">
+            <!-- 侧滑菜单内容 -->
+          </ui-view>
+
+          <ui-view slot="panel">
+            <!-- 页面主体部分 -->
+          </ui-view>
+        </ui-slide-menu>
+      </ui-view>
+    
+      <ui-nav-bar
+              ui:if="pageConfig"
+              ui:show="navigationBarVisible"
+              title="{{ pageConfig.navigationBarTitleText }}"
+              style="{{ navStyle }}">
+      <!-- 通用导航栏左侧图标区域 -->
+      <ui-view class="nav-bar-left" slot="left">
+        <span class="back" bindtap="handleBack" ui:show="showBack">
+          <ui-icon name="arrow-left" font-size="24"></ui-icon>{{ $t("back") }}
+        </span>
+
+        <svg ui:show="{{!showBack}}" type="navicon" bindtap="handleNavIconTap" size="35" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 512 512" class="ui-navicon"
+            style="fill: rgb(255, 255, 255); position: relative; top: 6px; left: -20px;">
+          <path d="M96 241h320v32H96zm0-96h320v32H96zm0 192h320v32H96z"></path>
+        </svg>
+      </ui-view>
+      <!-- 通用导航栏右侧图标区域 -->
+      <ui-view class="nav-bar-right" slot="right">
+      </ui-view>
+    </ui-nav-bar>
   </ui-page>
 </template>
 
@@ -11,11 +43,25 @@ export default {
     navigationBarTitleText: "15SlidingMenuSlideMenu"
   },
   data() {
-    return {}
+    return {
+      showSlideMenu: false,
+      navigationBarVisible: false,
+      statusBarColor: "white",
+      touchSlideMenu: true
+    };
   },
-  methods: {},
+  methods: {
+    closeMenu(val) {
+      this.showSlideMenu = false;
+      if (val !== "close") {
+        ui.navigateTo({
+          url: "/pages/templeteDemo/userCenter/userCenter"
+        });
+      }
+    }
+  },
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
