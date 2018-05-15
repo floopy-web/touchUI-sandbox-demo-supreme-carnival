@@ -3,6 +3,13 @@
   <ui-page>
     <ui-view class="content" style="{{{ height:300+'px' }}}">
       Hello world! new page.
+      <ui-divider> ink-bar </ui-divider>
+      <ui-tabs>
+        <ui-tab>1</ui-tab>
+        <ui-tab>2</ui-tab>
+        <ui-tab>3</ui-tab>
+      </ui-tabs>
+      
       Pagination swiper
       <ui-swiper pagination class="swiper" indicator-dots=true autoplay=true>
        <ui-swiper-item>
@@ -63,8 +70,7 @@
       _Form elements.
       bottom
 
-      <ui-divider> ink-bar </ui-divider>
-
+      
       UI-Ruler
       <ui-ruler bindChange=changedRulerValue($event)> test </ui-ruler>
 

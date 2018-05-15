@@ -2,11 +2,11 @@
 <template>
   <ui-page class="pageContent">
     <ui-view class="viewContent">
+      <ui-input ui:model="inputPlaceText"></ui-input>
       <ui-button type="secondary" bindtap="testRequest" plain="true">
-        Test API request CORS
+        Test API request CORS for Google Places autocomplete predictions.
       </ui-button>
-
-  
+      <ui-text> {{ autocompleteResponseText }} </ui-text>
     </ui-view>
   </ui-page>
 </template>
@@ -19,7 +19,8 @@ export default {
   },
   data() {
     return {
-
+      inputPlaceText: "",
+      autocompleteResponseText: ""
     };
   },
   methods: {
@@ -27,9 +28,9 @@ export default {
       console.log("httprequest");
       var xhr = new XMLHttpRequest();
       xhr.open('GET', 'https://maps.googleapis.com/maps/api/place/autocomplete/json');
-
+      console.log("testRequest:: searching for places close to", this.inputPlaceText)
       const httpPlacesAPIDataParas = {
-          input: "Brisbane",
+          input: this.inputPlaceText, // e.g.  "Brisbane",
           language: "en",
           key: "AIzaSyBFGkLSAHdWvjFH870eSyhWFawW_F78enU"
       }
@@ -40,9 +41,20 @@ export default {
         data: httpPlacesAPIDataParas,
         success: (res) => {
           console.log("response success data predictions", res.data.predictions);
+          this.autocompleteResponseText = JSON.stringify(res.data.predictions);
+          // Iterate and get each description from the Google Places predictions array.
+          const predictionsReadableDescription = res.data.predictions
+            .map((prediction) => {
+              return prediction.description;
+          });
+          this.autocompleteResponseText = "Predictions' descriptions:\n" + predictionsReadableDescription;
+        },
+        fail: (res) => {
+          console.log("GooglePlaces request failed");
+
         },
         complete: (res) => {
-          console.log("response data complete", res.data.predictions);
+          console.log("response data complete", res);
         }
       };
       ui.request(httpRequestInput);
