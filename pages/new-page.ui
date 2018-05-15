@@ -65,11 +65,6 @@
 
       <ui-divider> ink-bar </ui-divider>
 
-      <ui-tabs index=0>
-        <ui-tab>1</ui-tab>
-        <ui-tab>2</ui-tab>
-        <ui-tab>3</ui-tab>
-      </ui-tabs>
       UI-Ruler
       <ui-ruler bindChange=changedRulerValue($event)> test </ui-ruler>
 
@@ -125,21 +120,17 @@
         </ui-circular>
       </ui-view>
       <!-- Buttons to test progress -->
-      <ui-row height="16">
+      <ui-row height="32">
         <ui-col vertical-align="middle" align="left" space-right="10">
-          <ui-button bindTap="stepProgress(-10)"> - </ui-button>
+          <ui-button bindTap="stepProgress(-10)">-</ui-button>
         </ui-col>
         <ui-col vertical-align="middle" align="right" space-right="10">
-          <ui-button bindTap="stepProgress(+10)"> + </ui-button>
+          <ui-button bindTap="stepProgress(+10)">+</ui-button>
         </ui-col>
       </ui-row>
-      pop icon
-      <ui-pop-icon ui:model="toggleSwitch">
-        <ui-pop-icon-item item-color="#ff6767" top="0" left="-90">
-          hi
-        </ui-pop-icon-item>
-      </ui-pop-icon>
-    </ui-view>
+      
+
+      </ui-view>
   </ui-page>
 </template>
 
@@ -233,7 +224,6 @@ export default {
   },
   methods: {
     stepProgress(value) {
-      console.log("new-page::progress::", this.progressValue, "+", value);
       this.progressValue += value;
 
       if (this.progressValue > 100) {
@@ -241,6 +231,7 @@ export default {
       } else if (this.progressValue < 0) {
         this.progressValue = 100;
       }
+      console.log("new-page::progress::", this.progressValue);
     },
     // ui switch toggles
     toggle(event, switchIndex) {
@@ -269,6 +260,9 @@ export default {
     }
 
     // multi selector / picker
+
+    //
+
   },
   mounted() {
     console.log("new-page::mounted::");
@@ -289,27 +283,6 @@ export default {
     transform: translate(-50%, -60%);
     top: 50%;
     left: 50%;
-    .ui-text {
-      font-size: 12px;
-      color: #a5a5a5;
-    }
-    .ui-view {
-      font-size: 30px;
-      color: #1ec695;
-      &.count{
-        color: #FF9900;
-      }
-    }
-    &.text2 {
-      .ui-view {
-        color: #3399ff;
-      }
-    }
-    &.text3 {
-      .ui-view {
-        color: #fff;
-      }
-    }
   }
   &.circular1_1 {
     background-color: #0E1F46;
@@ -326,7 +299,7 @@ export default {
   }
   .swiper_item {
     display: flex;
-    height: 50vw;
+    height: 49vw;
     .ui-image-container {
       flex: 1;
       margin-right: 5px;

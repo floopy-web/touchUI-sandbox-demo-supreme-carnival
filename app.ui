@@ -4,7 +4,9 @@ export default {
     "pages": [
       "pages/index",
       "pages/detail",
-      "pages/new-page"
+      "pages/new-page",
+      "pages/recipientWorldHello",
+      "pages/helloWorldPage"
     ],
     "theme": {
       "theme-color": "#3399ff"
@@ -33,6 +35,18 @@ export default {
         },
         {
           "pagePath": "pages/new-page",
+          "iconName": "user",
+          selectedIconName: "arrow-left",
+          "text": "我的"
+        },
+        {
+          "pagePath": "pages/recipientWorldHello",
+          "iconName": "user",
+          selectedIconName: "arrow-left",
+          "text": "我的"
+        },
+        {
+          "pagePath": "pages/helloWorldPage",
           "iconName": "user",
           selectedIconName: "arrow-left",
           "text": "我的"

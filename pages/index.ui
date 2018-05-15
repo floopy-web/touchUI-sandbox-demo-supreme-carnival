@@ -7,6 +7,7 @@
         <ui-button type="primary" bindtap="sliderShow">slider 创建滑动条控件</ui-button>
         <ui-button type="primary" bindtap="navToPage('/pages/detail')">{{ buttonText }}</ui-button>
         <ui-button type="primary" bindtap="navToPage('/pages/new-page')"> go to new Test Page </ui-button>
+        <ui-button type="primary" bindtap="navToPage('/pages/helloWorldPage')"> go to new Test Page </ui-button>
 
       </ui-view>
   </ui-page>

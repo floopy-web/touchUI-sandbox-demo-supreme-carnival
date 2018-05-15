@@ -1,0 +1,71 @@
+<!--Hello world! This is my new page's title. -->
+<template>
+  <ui-page class="pageContent">
+    <ui-view class="viewContent">
+      <ui-button type="primary" plain="true">First button: Redirect to page -  </ui-button>
+      <ui-button type="primary" bindtap="navHandle" plain="true">Second button: Navigate to page - Send object to second page.</ui-button>
+      <ui-input placeholder="autocomplete text box"
+                ui:model='{{autocompleteText}}'>
+      </ui-input>
+      <!-- Test TouchUI's map component first for Google Map service. -->
+      <ui-map id="map" 
+          map-service="google" 
+          height="{{conHeight}}" 
+          markers="{{markers}}" 
+          latitude="{{latitude}}"
+          longitude="{{longitude}}"
+          show-location="{{true}}"
+          scale="18"
+          style="width: 100%; height: 64vh;"> 
+      </ui-map>
+
+    </ui-view>
+  </ui-page>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: "Hello world! This is my new page's title. "
+  },
+  data() {
+    return {
+      buttonText: "buttonText",
+      helloKey: "hello",
+      helloVal: 0,
+      text: "",
+      getText: "",
+      list: [10, 20],
+      // TouchUI Map component testing
+      conHeight: ui.DEFAULT_CONTENT_HEIGHT,
+      headerHeight: ui.DEFAULT_HEADER_HEIGHT,
+      tips: [],
+      markers: [],
+      latitude: -27.470125,
+      longitude: 153.021072,
+
+      autocompleteText: ""
+    };
+  },
+  methods: {
+    navHandle() {
+      console.log("nav");
+      ui.navigateTo({
+        url: "/pages/recipientWorldHello"
+      });
+    }
+  },
+  mounted() {
+    console.log("HelloWorldPage:: mounted:: ");
+  }
+};
+</script>
+
+<style lang="less">
+.pageContent {
+  background: red;
+}
+.viewContent {
+  background: darkblue;
+}
+</style>

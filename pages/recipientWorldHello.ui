@@ -1,0 +1,65 @@
+<!--recipient of helloWorld page's hello object passed through nav.-->
+<template>
+  <ui-page class="pageContent">
+    <ui-view class="viewContent">
+      <ui-button type="secondary" bindtap="testRequest" plain="true">
+        Test API request CORS
+      </ui-button>
+
+  
+    </ui-view>
+  </ui-page>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText:
+      "recipient of helloWorld page's test hello object passed through nav."
+  },
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+    testRequest() {
+      console.log("httprequest");
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'https://maps.googleapis.com/maps/api/place/autocomplete/json');
+
+      const httpPlacesAPIDataParas = {
+          input: "Brisbane",
+          language: "en",
+          key: "AIzaSyBFGkLSAHdWvjFH870eSyhWFawW_F78enU"
+      }
+      const httpRequestInput = {        
+        url: "https://maps.googleapis.com/maps/api/place/autocomplete/json",
+        header: { 'Access-Control-Allow-Origin': '*' }, // doesn't do anything
+        method: 'GET',
+        data: httpPlacesAPIDataParas,
+        success: (res) => {
+          console.log("response success data predictions", res.data.predictions);
+        },
+        complete: (res) => {
+          console.log("response data complete", res.data.predictions);
+        }
+      };
+      ui.request(httpRequestInput);
+      
+    }
+  },
+  mounted() {
+    console.log("recipientWorldHello:: mounted::");
+  }
+};
+</script>
+
+<style lang="less">
+.pageContent {
+  background: red;
+}
+.viewContent {
+  background: lightskyblue;
+}
+</style>
