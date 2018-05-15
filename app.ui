@@ -7,7 +7,7 @@ export default {
       "pages/new-page",
       "pages/recipientWorldHello",
       "pages/helloWorldPage",
-      "pages/componentsDemo/componentsIndex",
+      "pages/componentsDemo/0componentsIndex",
       "pages/componentsDemo/navBar",
       "pages/componentsDemo/pageDemo",
       "pages/componentsDemo/4tabBar",

@@ -5,7 +5,7 @@
       </ui-view>
       <ui-view class="buttonContent">
         <ui-button bindTap="buttonEvent()"> Test Event </ui-button>
-        <ui-button type="primary" bindTap="navToPage('/pages/componentsDemo/componentsIndex')"> Components demos page</ui-button>
+        <ui-button type="primary" bindTap="navToPage('/pages/componentsDemo/0componentsIndex')"> Components demos page</ui-button>
         <ui-button type="primary" bindtap="sliderShow">slider 创建滑动条控件</ui-button>
         <ui-button type="primary" bindtap="navToPage('/pages/detail')">{{ buttonText }}</ui-button>
         <ui-button type="primary" bindtap="redirectToPage('/pages/new-page')">RedirectTo new-page</ui-button>

@@ -1,0 +1,192 @@
+<!--0componentsIndex-->
+<template>
+  <ui-page>
+    Index page to navigate to each TouchUI component demo.
+    Using ui:for (Vue.js v-for equivalent for UILeader).
+    Slightly different syntax: ui:for="moustacheitemsArray" ui:for-index="idx" ui:for-item="itemName" parameters.
+
+    <ui-view ui:for="{{ items }}" class="{{{'grey-bg': index % 2 == 0}}}">
+      {{ item }}
+    </ui-view>
+    <!-- alternate buttons blue primary style. -->
+    <ui-button ui:for="{{componentPages}}" bindTap="componentButtonPress(index, $event)" style="text-align: left;" class="{{{'grey-bg': index % 2 == 0}}}">
+       {{ item }} {{ index }} 
+    </ui-button>
+    <ui-button type="primary"> primary button </ui-button>
+  </ui-page>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: "componentsIndex"
+  },
+  data() {
+    return {
+
+      items: ["lol", "2two", "Three"],
+      // ... esoteric behaviour. url "/pages/componentsDemo/" provides an absolute link
+      // wheres "pages/componentsDemo/" provides a relative link... 
+      // e.g. http://localhost:9090/#/pages/componentsDemo/pages/componentsDemo/pageDemo
+      componentPages: [
+        "/pages/componentsDemo/0componentsIndex",
+        "/pages/componentsDemo/navBar",
+        "/pages/componentsDemo/pageDemo",
+        "/pages/componentsDemo/4tabBar",
+        "/pages/componentsDemo/5Banner",
+        "/pages/componentsDemo/6wholePageScrolling",
+        "/pages/componentsDemo/7BasicContainerView",
+        "/pages/componentsDemo/8RasterLayoutRowCol",
+        "/pages/componentsDemo/9RasterListRowList",
+        "/pages/componentsDemo/10ScrollContainerScrollView",
+        "/pages/componentsDemo/11SlidingMenuContainerSwipeOut",
+        "/pages/componentsDemo/12DragContainerDraggableArea",
+        "/pages/componentsDemo/13FixedContainerFixedView",
+        "/pages/componentsDemo/14CeilingContainerSticky",
+        "/pages/componentsDemo/15SlidingMenuSlideMenu",
+        "/pages/componentsDemo/16CarouselSwiper",
+        "/pages/componentsDemo/17AdvancedCarouselExSwiper",
+        "/pages/componentsDemo/18IntegratedModeTabTabView",
+        "/pages/componentsDemo/19SeparateModeTabTabs",
+        "/pages/componentsDemo/20VerticalTabVTabs",
+        "/pages/componentsDemo/21SegmentedTabSegment",
+        "/pages/componentsDemo/22FoldingPanelAccordion",
+        "/pages/componentsDemo/23SummarySummary",
+        "/pages/componentsDemo/24BackgroundMask",
+        "/pages/componentsDemo/25PopupModalLayerPopup",
+        "/pages/componentsDemo/26PopupPopover",
+        "/pages/componentsDemo/27PopupIconNavigationPopIcon",
+        "/pages/componentsDemo/28Button",
+        "/pages/componentsDemo/29Switch",
+        "/pages/componentsDemo/30Slider",
+        "/pages/componentsDemo/31Ruler",
+        "/pages/componentsDemo/32NativeInputBox",
+        "/pages/componentsDemo/33VirtualinputBox",
+        "/pages/componentsDemo/34SMSVerificationBox",
+        "/pages/componentsDemo/35MultilineInputBoxTextArea",
+        "/pages/componentsDemo/36Search",
+        "/pages/componentsDemo/37RadioBox",
+        "/pages/componentsDemo/38Checkbox",
+        "/pages/componentsDemo/39SelectListCheckList",
+        "/pages/componentsDemo/40Picker",
+        "/pages/componentsDemo/41ExplicitSelectorPickerView",
+        "/pages/componentsDemo/42DigitalSelectorStepper",
+        "/pages/componentsDemo/43CascadeSelectionCascader",
+        "/pages/componentsDemo/44IndexSelectionIndexList",
+        "/pages/componentsDemo/45Calendar",
+        "/pages/componentsDemo/46VerticalCalendarVCalendar",
+        "/pages/componentsDemo/47WeeklyCalendarWCalendar",
+        "/pages/componentsDemo/48Form",
+        "/pages/componentsDemo/49Label",
+        "/pages/componentsDemo/50JumpNavigationNavigator",
+        "/pages/componentsDemo/51WebRequestPracticeRequest",
+        "/pages/componentsDemo/52DataTable",
+        "/pages/componentsDemo/53ListOfDataListView",
+        "/pages/componentsDemo/54WaterfallFlowWaterfall",
+        "/pages/componentsDemo/55NetworkContainerNetworkView",
+        "/pages/componentsDemo/56Text",
+        "/pages/componentsDemo/57RichText",
+        "/pages/componentsDemo/58TagGroupTags",
+        "/pages/componentsDemo/59DigitalAnimationCountUp",
+        "/pages/componentsDemo/60Countdown",
+        "/pages/componentsDemo/61ScrollAnnouncementRoller",
+        "/pages/componentsDemo/62Icon",
+        "/pages/componentsDemo/63PictureImage",
+        "/pages/componentsDemo/64ImagePreviewer",
+        "/pages/componentsDemo/65PhotoCourtesyBlur",
+        "/pages/componentsDemo/66Audio",
+        "/pages/componentsDemo/67Video",
+        "/pages/componentsDemo/68CornerMarkBadge",
+        "/pages/componentsDemo/69SeparatorDivider",
+        "/pages/componentsDemo/70StarRatingStar",
+        "/pages/componentsDemo/71StarDisplayMiniStar",
+        "/pages/componentsDemo/72Wave",
+        "/pages/componentsDemo/73SlideToUnlockLocker",
+        "/pages/componentsDemo/74DrawingCanvas",
+        "/pages/componentsDemo/75Timeline",
+        "/pages/componentsDemo/76ProgressRingCircular",
+        "/pages/componentsDemo/77MultilevelScheduleRingMultiCircular",
+        "/pages/componentsDemo/78MiniScheduleRingMiniCircular",
+        "/pages/componentsDemo/79ProgressBarProgress",
+        "/pages/componentsDemo/80BarChartBar",
+        "/pages/componentsDemo/81GroupedBarChartGroupedBar",
+        "/pages/componentsDemo/82StackedBarChartStackedBar",
+        "/pages/componentsDemo/83LineChartLine",
+        "/pages/componentsDemo/84AreaMapStackedArea",
+        "/pages/componentsDemo/85Donut",
+        "/pages/componentsDemo/86CarouselRingDiagramSlideDoughtnut",
+        "/pages/componentsDemo/87LevelRingDiagramLevelDoughnut",
+        "/pages/componentsDemo/88FunnelFunnel",
+        "/pages/componentsDemo/89HistogramStep",
+        "/pages/componentsDemo/90TrendlineSparkline",
+        "/pages/componentsDemo/91ContrastFigureContrast",
+        "/pages/componentsDemo/92Dashboard",
+        "/pages/componentsDemo/93Brush",
+        "/pages/componentsDemo/94Legend",
+        "/pages/componentsDemo/95MapComponentMap",
+        "/pages/componentsDemo/96MapLBSMapDataService",
+        "/pages/componentsDemo/97CustomMarkersAndBubbles",
+        "/pages/componentsDemo/98GetLocationAndView",
+        "/pages/componentsDemo/99TrackMovementZoom",
+        "/pages/componentsDemo/100TencentMapDataServiceSDKEntryAndUseRestrictions",
+        "/pages/componentsDemo/101TencentCoreClass",
+        "/pages/componentsDemo/102TencentLocationSearch",
+        "/pages/componentsDemo/103TencentKeywordsInputPrompt",
+        "/pages/componentsDemo/104InverseAddressResolution",
+        "/pages/componentsDemo/105AddressResolution",
+        "/pages/componentsDemo/106DistanceCalculation",
+        "/pages/componentsDemo/107HighGermanMapDataServiceSDKGetKey",
+        "/pages/componentsDemo/108HighGermanMapDataServiceSDKBasicClass",
+        "/pages/componentsDemo/109GetPOIData",
+        "/pages/componentsDemo/110GetAddressDescriptionData",
+        "/pages/componentsDemo/111GetRealtimeWeatherData",
+        "/pages/componentsDemo/112GetInputPrompts",
+        "/pages/componentsDemo/113RoutePlanning",
+        "/pages/componentsDemo/114DrawingAStaticGraph",
+        "/pages/componentsDemo/115ErrorMessageList",
+        "/pages/componentsDemo/116GoogleWebserviceExample",
+        "/pages/componentsDemo/117TencentWebserviceExample",
+        "/pages/componentsDemo/118GetRoughAndPrecisePositioning"
+      ]
+    };
+  },
+  methods: {
+    // Receives component button presses with the page array index and the (html) event button click.
+    componentButtonPress(pageIndex, event) {
+      console.log("0componentsIndex:: componentButtonPress:: event", pageIndex, event);
+
+      
+      // Get pageUrl using pages index
+      const pageUrl = this.getPageUrl(pageIndex, this.componentPages);
+      const navPageParams = { url: pageUrl }                            // Not using anything else atm 
+      console.log("0componentsIndex:: componentButtonPress:: getUrl() for navOptions", pageUrl);
+      this.navToPage(navPageParams);
+
+      return 0;
+    },
+    // Functional programming? Get the page details.
+    getPageUrl(pageIndex, pagesArray) {
+      // Warning:  Leading `/` in "/pages" is an 'absolute' link. "pages/" is relative to the current page
+      // e.g. http://localhost:9090/#/pages/componentsDemo/pages/componentsDemo/pageDemo
+      console.log("0componentsIndex:: getPageUrl:: ", pagesArray[pageIndex]);
+      // Array currently only url string, not nested objects.
+      return pagesArray[pageIndex];
+    },
+    // Wrapper function for ui.navigateTo... pointless?
+    navToPage(navigationOptions) {
+      ui.navigateTo(navigationOptions);
+
+      return 0
+    }
+  },
+  mounted() {
+    
+  }
+};
+</script>
+
+<style lang="less">
+.grey-bg {
+  background: gray;
+}
+</style>

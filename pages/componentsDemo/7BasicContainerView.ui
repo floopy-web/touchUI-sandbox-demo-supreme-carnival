@@ -2,22 +2,87 @@
 <template>
   <ui-page>
 
+
+
+    <ui-view class="win" style="{{ { height: height + 'px'} }}">
+      <ui-view class="top">
+        高度固定：150px
+      </ui-view>
+      <ui-view class="content">
+        高度自适应
+        Mid
+        <ui-view class="section">
+          <ui-view class="section__title">横向triple flexbox排列</ui-view>
+          <ui-view class="flex-wrp" style="flex-direction:row;">
+            <ui-view class="flex-item bc_green">1</ui-view>
+            <ui-view class="flex-item bc_red">2</ui-view>
+            <ui-view class="flex-item bc_blue">3</ui-view>
+          </ui-view>
+        </ui-view>
+      </ui-view>
+      <ui-view class="bottom">
+        高度固定：150px
+      </ui-view>
+    </ui-view>
   </ui-page>
 </template>
 
 <script>
 export default {
   config: {
-    navigationBarTitleText: "7BasicContainerView"
+    navigationBarTitleText: "BasicContainerView vertical px layout",
+    disableScroll: true
   },
   data() {
-    return {}
+    return {
+      height: ui.DEFAULT_CONTENT_HEIGHT
+    };
   },
-  methods: {},
-  mounted() {}
-}
+  methods: {}
+};
 </script>
 
 <style lang="less">
-
+// Triple flexbox
+.flex-wrp {
+  display: flex;
+  background-color: #ffffff;
+  width: 300px;
+  margin: 0 auto;
+}
+.flex-item {
+  width: 100px;
+  height: 100px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bc_green {
+  background-color: #7cc422;
+}
+.bc_red {
+  background-color: #ffa060;
+}
+.bc_blue {
+  background-color: #46d1e4;
+}
+// verticalPx.less
+.win {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.top {
+  height: 150px;
+  background-color: #46d1e4;
+}
+.bottom {
+  height: 150px;
+  background-color: #7cc422;
+}
+.content {
+  flex-grow: 1;
+  background-color: #ffa060;
+}
 </style>
