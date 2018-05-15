@@ -28,6 +28,84 @@
         <ui-view class="bottom2">CPU</ui-view>
       </ui-view>
     </ui-view>
+
+
+    Cool
+    <ui-view class="dashboard1 dashboard6">
+      <ui-view>
+        <ui-dashboard
+            radius="110"
+            line-width="5"
+            center-top= "140"
+            center-left= "150"
+            width="300"
+            height="300"
+            min= "0"
+            max= "100"
+            angle= "270"
+            marker-width="1"
+            marker-type= "in"
+            detail-marker="true"
+            marker-length= "6"
+            circular-animation= "true"
+            value= "{{dashboard6Value}}"
+            color= "#fff"
+            text-color="#fff"
+            marker-color="#fff"
+            padding= "10"
+            bg-color= "rgba(255, 255, 255, 0.5)"
+            have-outside-pointer= "true"
+            have-pointer= "false"
+            ></ui-dashboard>
+      </ui-view>
+      <ui-view class="dashboard6_text">
+        <ui-view class="text1">{{ dashboard6Value }}</ui-view>
+        <ui-view class="text2">下载速度</ui-view>
+        <ui-view class="wifi">Wi-Fi</ui-view>
+      </ui-view>
+      <ui-button bindtap="setValue(6)" size="mini" >设置Value值</ui-button>
+    </ui-view>
+
+
+    <ui-view class="dashboard1 dashboard7">
+      <ui-view>
+        <ui-dashboard
+            radius="85"
+            line-width="5"
+            center-top= "150"
+            center-left= "150"
+            width="300"
+            height="300"
+            angle= "270"
+            circular-animation= "true"
+            have-pointer= "false"
+            shadow-color="#50D15C"
+            value= "{{dashboard7Value}}"
+            color= "#50D15C"
+            show-pointer= "false"
+            bg-color= "rgba(80, 209, 92, 0.5)"
+            have-outside-pointer= "false"
+            ></ui-dashboard>
+      </ui-view>
+      <ui-view class="dashboard7_text">
+        <ui-view class="text1">CO2</ui-view>
+        <ui-view class="text2">{{dashboard7TextValue}}</ui-view>
+        <ui-view class="text3">新鲜</ui-view>
+      </ui-view>
+
+      <ui-view class="huan-wrap">
+        <ui-view class="huan">
+          <ui-view class="num num0">500</ui-view>
+          <ui-view class="num num1">1000</ui-view>
+          <ui-view class="num num2">1500</ui-view>
+          <ui-view class="num num3">2000</ui-view>
+          <ui-view class="num num4">2500</ui-view>
+        </ui-view>
+        <ui-view class="shade"></ui-view>
+      </ui-view>
+      <ui-button bindtap="setValue(7)" size="mini">设置Value值</ui-button>
+    </ui-view>
+
   </ui-page>
 </template>
 
@@ -40,10 +118,24 @@ export default {
     return {
       valueArray1: [1, 2, 1],
       colorArray1: ["#FF514B", "#FFDE4F", "#3FB178"],
-      dashboardValue4: 50
+      dashboardValue4: 50,
+      dashboard6Value: 40,
+      dashboard7Value: 50,
+      dashboard7TextValue: 1500
     };
   },
-  methods: {},
+  methods: {
+    setValue(index) {
+      let num = Math.round(Math.random() * 100);
+      if (index === 6) {
+        this.dashboard6Value = num;
+      } else {
+        this.dashboard7Value = num;
+        this.dashboard7TextValue = this.dashboard7Value / (100 / 3000);
+      }
+    }
+  },
+
   mounted() {}
 };
 </script>
