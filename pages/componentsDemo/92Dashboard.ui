@@ -1,7 +1,33 @@
 <!--92Dashboard-->
 <template>
   <ui-page>
-
+    <ui-view class="dashboard1">
+      <ui-view class="dashboard4_content">
+        <ui-dashboard
+            radius="110"
+            value-array="{{ valueArray1 }}"
+            color-array="{{ colorArray1 }}"
+            line-width="20"
+            center-top= "170"
+            center-left= "150"
+            width="300"
+            height="300"
+            angle= "270"
+            marker-width="1"
+            detail-marker= "true"
+            marker-type="out"
+            marker-length= "6"
+            circular-animation= "true"
+            pointer-size= "60"
+            value= "{{dashboardValue4}}"
+            color= "#00B8EE"
+            bg-color= "#ccc"
+            text-color= "#333"
+            ></ui-dashboard>
+        <ui-view class="bottom1">{{ dashboardValue4 }}%</ui-view>
+        <ui-view class="bottom2">CPU</ui-view>
+      </ui-view>
+    </ui-view>
   </ui-page>
 </template>
 
@@ -11,11 +37,15 @@ export default {
     navigationBarTitleText: "92Dashboard"
   },
   data() {
-    return {}
+    return {
+      valueArray1: [1, 2, 1],
+      colorArray1: ["#FF514B", "#FFDE4F", "#3FB178"],
+      dashboardValue4: 50
+    };
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
