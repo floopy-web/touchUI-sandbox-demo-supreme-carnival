@@ -9,7 +9,7 @@
         <ui-tab>2</ui-tab>
         <ui-tab>3</ui-tab>
       </ui-tabs>
-      
+
       Pagination swiper
       <ui-swiper pagination class="swiper" indicator-dots=true autoplay=true>
        <ui-swiper-item>
@@ -241,7 +241,7 @@ export default {
     },
     // ui switch toggles
     toggle(event, switchIndex) {
-      console.log("new-page::", event, switchIndex);
+      console.log("new-page::", "switch #", switchIndex, event);
     },
     // ui ruler
     changedRulerValue(event) {
