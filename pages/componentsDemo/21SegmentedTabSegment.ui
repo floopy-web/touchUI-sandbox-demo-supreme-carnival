@@ -1,7 +1,32 @@
 <!--21SegmentedTabSegment-->
 <template>
   <ui-page>
+    <ui-divider>和图标一起使用</ui-divider>
+    <ui-segment>
+        <ui-segment-item>
+            <ui-icon type="dingding"></ui-icon>钉钉
+        </ui-segment-item>
+        <ui-segment-item>
+            <ui-icon type="weibo"></ui-icon>微博
+        </ui-segment-item>
+        <ui-segment-item>
+            <ui-icon type="weixin"></ui-icon>微信
+        </ui-segment-item>
+    </ui-segment>
 
+
+    <ui-divider>handle change事件</ui-divider>
+    <ui-segment bindchange="handleChange">
+      <ui-segment-item>
+        First
+      </ui-segment-item>
+      <ui-segment-item>
+        Second
+      </ui-segment-item>
+      <ui-segment-item>
+        Third
+      </ui-segment-item>
+    </ui-segment>
   </ui-page>
 </template>
 
@@ -13,11 +38,19 @@ export default {
   data() {
     return {}
   },
-  methods: {},
+  methods: {
+    handleChange (index) {
+      ui.showToast({
+        title: 'index: ' + index
+      })
+    }
+  },
   mounted() {}
 }
 </script>
 
 <style lang="less">
-
+.ui-icon {
+  margin-right: 6px;
+}
 </style>
