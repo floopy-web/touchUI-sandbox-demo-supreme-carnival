@@ -1,0 +1,32 @@
+<!--4tabBar-->
+<template>
+  <ui-page>
+    <ui-view class="content">
+      <ui-text class="title">演示1-2</ui-text>
+      <ui-button bindtap="tabresult">跳转到上一个标签</ui-button>
+    </ui-view>
+    <ui-view class="content_list">
+      <ui-view ui:for="{{ items }}" class="{{{'grey-bg': index % 2 == 0}}}">
+        {{ item }}
+        "tabBar would overwrite global app tabBar?"
+      </ui-view>
+    </ui-view>
+  </ui-page>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: "4tabBar"
+  },
+  data() {
+    return {}
+  },
+  methods: {},
+  mounted() {}
+}
+</script>
+
+<style lang="less">
+
+</style>
