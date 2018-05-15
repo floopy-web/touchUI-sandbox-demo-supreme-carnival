@@ -1,7 +1,99 @@
 <!--8RasterLayoutRowCol-->
 <template>
   <ui-page>
+    <!-- 123 123 -->
+    <ui-view>
+      <ui-row border-top border-bottom height="40">
+        <ui-col vertical-align="middle" align="center" border-right>
+          1
+        </ui-col>
+        <ui-col vertical-align="middle" align="center">
+          2
+        </ui-col>
+      </ui-row>
+      <ui-row border-bottom height="40" space-bottom="20">
+        <ui-col vertical-align="middle" align="center" border-right>
+          3
+        </ui-col>
+        <ui-col vertical-align="middle" align="center" border-right>
+          4
+        </ui-col>
+        <ui-col vertical-align="middle" align="center" border-right>
+          5
+        </ui-col>
+        <ui-col vertical-align="middle" align="center">
+          6
+        </ui-col>
+      </ui-row>
+    </ui-view>
 
+    <!-- 1 2345 -->
+    <ui-view> 
+       <ui-row space-bottom="20">
+        <ui-col span="4" space-right="5">
+          <div class="column-content" style="height:85px">1</div>
+        </ui-col>
+        <ui-col span="8">
+          <ui-row>
+            <ui-col space-right="5">
+              <div class="column-content">2</div>
+            </ui-col>
+            <ui-col >
+              <div class="column-content">3</div>
+            </ui-col>
+          </ui-row>
+          <ui-row space-top="5">
+            <ui-col space-right="5">
+              <div class="column-content">4</div>
+            </ui-col>
+            <ui-col>
+              <div class="column-content">5</div>
+            </ui-col>
+          </ui-row>
+        </ui-col>
+      </ui-row>
+    </ui-view>
+
+    <ui-view class="grid-container">
+      <ui-row>
+        <ui-col span="4" space-right="5">
+          <div class="column-content" style="height:95px">1</div>
+        </ui-col>
+        <ui-col span="8">
+          <ui-row>
+            <ui-col span="6" space-right="5">
+              <div class="column-content" style="height:45px">2</div>
+            </ui-col>
+            <ui-col span="6">
+              <div class="column-content" style="height:45px">3</div>
+            </ui-col>
+          </ui-row>
+          <ui-row space-top="5">
+            <ui-col span="6" space-right="5">
+              <div class="column-content" style="height:45px">4</div>
+            </ui-col>
+            <ui-col span="6">
+              <ui-row space-bottom="5">
+                <ui-col class="h25" space-right="5">
+                  <div class="column-content" style="height:20px">5</div>
+                </ui-col>
+                <ui-col class="h25">
+                  <div class="column-content" style="height:20px">6</div>
+                </ui-col>
+              </ui-row>
+              <ui-row>
+                <ui-col class="h25" space-right="5">
+                  <div class="column-content" style="height:20px">7</div>
+                </ui-col>
+                <ui-col class="h25">
+                  <div class="column-content" style="height:20px">8</div>
+                </ui-col>
+              </ui-row>
+            </ui-col>
+          </ui-row>
+        </ui-col>
+      </ui-row>
+    </ui-view>
   </ui-page>
 </template>
 
@@ -11,13 +103,22 @@ export default {
     navigationBarTitleText: "8RasterLayoutRowCol"
   },
   data() {
-    return {}
+    return {};
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
+.grid-container {
+  background: fadein(darkslateblue, 10%);
+  border-radius: 4px;
+  padding: 0.25em;
+}
+.column-content {
+  background: fadein(lightgray, 50%);
+  border-radius: 5px;
+  text-align: center;
+}
 </style>
