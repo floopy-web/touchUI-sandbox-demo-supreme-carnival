@@ -1,0 +1,23 @@
+<!--94Legend-->
+<template>
+  <ui-page>
+
+  </ui-page>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: "94Legend"
+  },
+  data() {
+    return {}
+  },
+  methods: {},
+  mounted() {}
+}
+</script>
+
+<style lang="less">
+
+</style>

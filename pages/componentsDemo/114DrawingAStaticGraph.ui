@@ -1,0 +1,23 @@
+<!--114DrawingAStaticGraph-->
+<template>
+  <ui-page>
+
+  </ui-page>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: "114DrawingAStaticGraph"
+  },
+  data() {
+    return {}
+  },
+  methods: {},
+  mounted() {}
+}
+</script>
+
+<style lang="less">
+
+</style>

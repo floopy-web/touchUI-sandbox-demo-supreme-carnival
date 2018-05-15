@@ -1,0 +1,23 @@
+<!--83LineChartLine-->
+<template>
+  <ui-page>
+
+  </ui-page>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: "83LineChartLine"
+  },
+  data() {
+    return {}
+  },
+  methods: {},
+  mounted() {}
+}
+</script>
+
+<style lang="less">
+
+</style>

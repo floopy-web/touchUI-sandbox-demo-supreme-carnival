@@ -1,0 +1,23 @@
+<!--101TencentCoreClass-->
+<template>
+  <ui-page>
+
+  </ui-page>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: "101TencentCoreClass"
+  },
+  data() {
+    return {}
+  },
+  methods: {},
+  mounted() {}
+}
+</script>
+
+<style lang="less">
+
+</style>

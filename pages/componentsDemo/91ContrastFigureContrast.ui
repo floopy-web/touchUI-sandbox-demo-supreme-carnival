@@ -1,0 +1,23 @@
+<!--91ContrastFigureContrast-->
+<template>
+  <ui-page>
+
+  </ui-page>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: "91ContrastFigureContrast"
+  },
+  data() {
+    return {}
+  },
+  methods: {},
+  mounted() {}
+}
+</script>
+
+<style lang="less">
+
+</style>

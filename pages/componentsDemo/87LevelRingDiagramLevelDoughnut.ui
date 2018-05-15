@@ -1,0 +1,23 @@
+<!--87LevelRingDiagramLevelDoughnut-->
+<template>
+  <ui-page>
+
+  </ui-page>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: "87LevelRingDiagramLevelDoughnut"
+  },
+  data() {
+    return {}
+  },
+  methods: {},
+  mounted() {}
+}
+</script>
+
+<style lang="less">
+
+</style>
