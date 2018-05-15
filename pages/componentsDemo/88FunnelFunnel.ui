@@ -14,6 +14,21 @@
         value="{{funnelValue}}"
     >
     </ui-funnel>
+    <ui-funnel
+        height="250"
+        offset-left="40"    
+        show-conversion="{{false}}"
+        value-position="left"
+        show-slider
+        final-rect="{{false}}"
+        up-side= "0"
+        down-side= "200"
+        slider-x= "300"
+        line-length= "94"
+        show-legend
+        value="{{funnelValue}}"
+    >
+    </ui-funnel>
   </ui-page>
 </template>
 
