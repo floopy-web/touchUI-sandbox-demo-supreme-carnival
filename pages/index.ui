@@ -34,7 +34,7 @@ export default {
           const getData = ui.getQuery();
           ui.showAlert({
             title: "PageLoadedTitle Alert",
-            content: getData
+            content: "alert text" + getData
           });
           ui.setNavigationBarColor({
             gradient: "linear-gradient(85deg, #AABB44, #7766FF)"

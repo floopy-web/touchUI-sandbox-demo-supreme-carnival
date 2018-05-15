@@ -6,7 +6,10 @@ export default {
       "pages/detail",
       "pages/new-page",
       "pages/recipientWorldHello",
-      "pages/helloWorldPage"
+      "pages/helloWorldPage",
+      "pages/componentsDemo/componentsIndex",
+      "pages/componentsDemo/navBar",
+      "pages/componentsDemo/pageDemo"
     ],
     "theme": {
       "theme-color": "#3399ff"
