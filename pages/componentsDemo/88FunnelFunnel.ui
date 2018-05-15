@@ -2,6 +2,18 @@
 <template>
   <ui-page>
 
+    <ui-funnel
+        height="250"
+        offset-left="40" 
+        final-rect
+        show-conversion
+        show-slider
+        slider-x="300"
+        line-length="94"
+        show-legend
+        value="{{funnelValue}}"
+    >
+    </ui-funnel>
   </ui-page>
 </template>
 
@@ -11,11 +23,44 @@ export default {
     navigationBarTitleText: "88FunnelFunnel"
   },
   data() {
-    return {}
+    return {
+      funnelValue: [
+        {
+          value: 2102,
+          text: "浏览",
+          color: "#45DBFF"
+        },
+        {
+          value: 4351,
+          text: "注册",
+          color: "#3CC4D2"
+        },
+        {
+          value: 2310,
+          text: "咨询",
+          color: "#FF5883"
+        },
+        {
+          value: 4200,
+          text: "使用",
+          color: "#FFAF4D"
+        },
+        {
+          value: 2000,
+          text: "购买",
+          color: "#53E335"
+        }
+      ]
+    };
   },
-  methods: {},
+  methods: {
+    sliderchange(e) {
+      console.log(e);
+      ui.showToast({ title: `${e.value}` });
+    }
+  },
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
