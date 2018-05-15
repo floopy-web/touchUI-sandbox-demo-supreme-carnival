@@ -1,21 +1,96 @@
 <!--40Picker-->
 <template>
   <ui-page>
+    <ui-picker title="选择出发时间" mode="time" value="{{ timeValue }}" bindchange="handleChange4"></ui-picker>
+    <ui-button  bindtap="setPicker2">将时间重置为00:00</ui-button>
 
+    <ui-view class="sample_title">日期选择器</ui-view>
+    <ui-view class="sample_content">
+      <ui-divider>format：YYYY-MM-DD</ui-divider>
+      <ui-picker fields="year" mode="date" start="2017-09-01" disabled end="2018-09-30" value="{{ dataValue }}" bindchange="handleChange5"></ui-picker>
+
+      <ui-divider>format：YYYY/MM/DD</ui-divider>
+      <ui-picker mode="date" start="2017-09-01" end="2018-09-30" value="{{ dataValue }}" date-format="YYYY/MM/DD" bindchange="handleChange5"></ui-picker>
+
+      <ui-divider>format：YYYY年MM月DD日</ui-divider>
+      <ui-picker mode="date" start="2017-09-01" end="2018-09-30" value="{{ dataValue }}" date-format="YYYY年MM月DD日" bindchange="handleChange5"></ui-picker>
+
+      <ui-divider>format：YYYY年M月D日</ui-divider>
+      <ui-picker mode="date" start="2017-09-01" end="2018-09-30" value="{{ dataValue }}" date-format="YYYY年M月D日" bindchange="handleChange5"></ui-picker>
+
+      <ui-divider>format：MMMM Do, YYYY</ui-divider>
+      <ui-picker mode="date" start="2017-09-01" end="2018-09-30" value="{{ dataValue }}" date-format="MMMM Do, YYYY" bindchange="handleChange5"></ui-picker>
+
+      <ui-divider>format：dddd MMMM Do, YYYY</ui-divider>
+      <ui-picker mode="date" start="2017-09-01" end="2018-09-30" value="{{ dataValue }}" date-format="dddd MMMM Do, YYYY" bindchange="handleChange5"></ui-picker>
+      <ui-button  bindtap="resetPicker3">将日期设置为今天</ui-button>
+    </ui-view>
+
+
+    <ui-divider>省市区选择</ui-divider>
+    <ui-picker mode="region" value="{{ cityValue1 }}" range="{{ cityValue }}" bindchange="handleChange6"></ui-picker>
+    <ui-button  bindtap="resetPicker4">将地区设置为北京市丰台区</ui-button>
+
+    <ui-divider>省市选择</ui-divider>
+    <ui-picker mode="region" value="{{ cityValue2 }}" range="{{ cityValue }}" hide-district bindchange="handleChange7"></ui-picker>
+    <ui-button  bindtap="resetPicker5">将地区设置为广东省深圳市</ui-button>
   </ui-page>
 </template>
 
 <script>
+import cityList from "#/static/data/address";
+const getDoubleNumber = function(num) {
+  return num < 10 ? "0" + num : "" + num;
+};
+
 export default {
   config: {
     navigationBarTitleText: "40Picker"
   },
   data() {
-    return {}
+    return {
+      timeValue: "00:12",
+      dataValue: "2017-09-05",
+      cityValue: cityList,
+      cityValue1: ["110000", "110107"],
+      cityValue2: ["330000", "330100"],
+      value1: ["330000", "330100", "330102"],
+      value2: ["330000", "330100"]
+    };
   },
-  methods: {},
+  methods: {
+    handleChange4(val) {
+      this.timeValue = val;
+    },
+    setPicker2() {
+      this.timeValue = "00:00";
+    },
+    handleChange5(val) {
+      this.dataValue = val;
+    },
+    resetPicker3() {
+      let today = new Date();
+      let year = today.getFullYear() + "";
+      let month = getDoubleNumber(today.getMonth() + 1);
+      let day = getDoubleNumber(today.getDate());
+
+      this.dataValue = year + "-" + month + "-" + day;
+    },
+    handleChange6(val) {
+      this.cityValue1 = val;
+    },
+    handleChange7(val) {
+      this.cityValue2 = val;
+    },
+    resetPicker4() {
+      this.cityValue1 = ["110000", "110100", "110106"];
+    },
+    resetPicker5() {
+      this.cityValue2 = ["440000", "440300"];
+    }
+  },
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
