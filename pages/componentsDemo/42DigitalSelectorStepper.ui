@@ -1,7 +1,7 @@
 <!--42DigitalSelectorStepper-->
 <template>
   <ui-page>
-
+    <ui-stepper color="darkred"></ui-stepper>
   </ui-page>
 </template>
 
