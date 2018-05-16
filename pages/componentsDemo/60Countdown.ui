@@ -1,6 +1,7 @@
 <!--60Countdown-->
 <template>
   <ui-page>
+    <ui-count-down time="20" timetype="second" done-text="结束啦～～" format="{%s}seconds" bindtimeup="bindtimeup"></ui-count-down>
 
   </ui-page>
 </template>
@@ -11,13 +12,16 @@ export default {
     navigationBarTitleText: "60Countdown"
   },
   data() {
-    return {}
+    return {};
   },
-  methods: {},
+  methods: {
+    bindtimeup() {
+      ui.showToast({ title: "倒计时结束" });
+    }
+  },
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
 </style>

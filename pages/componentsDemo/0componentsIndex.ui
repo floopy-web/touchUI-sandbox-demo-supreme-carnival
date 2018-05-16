@@ -10,7 +10,7 @@
     </ui-view>
     <!-- alternate buttons blue primary style. -->
     <ui-button ui:for="{{componentPages}}" bindTap="componentButtonPress(index, $event)" style="text-align: left;" class="{{{'grey-bg': index % 2 == 0}}}">
-       {{ item }} {{ index }} 
+       {{ index }} {{ item }}
     </ui-button>
     <ui-button type="primary"> primary button </ui-button>
   </ui-page>

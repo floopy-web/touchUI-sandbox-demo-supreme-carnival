@@ -1,7 +1,32 @@
 <!--61ScrollAnnouncementRoller-->
 <template>
   <ui-page>
-
+    <ui-roller>
+      <ui-roller-item>
+        <ui-row>
+          <ui-col span="1">
+            <ui-text style="color:#F00;">荐</ui-text>
+          </ui-col>
+          <ui-col span="11">touchui 让企业移动开发降低80%成本</ui-col>
+        </ui-row>
+      </ui-roller-item>
+      <ui-roller-item>
+        <ui-row>
+          <ui-col span="1">
+            <ui-text style="color:#F00;">荐</ui-text>
+          </ui-col>
+          <ui-col span="11">touchui 让企业移动开发降低80%成本</ui-col>
+        </ui-row>
+      </ui-roller-item>
+      <ui-roller-item>
+        <ui-row>
+          <ui-col span="1">
+            <ui-text style="color:#F00;">荐</ui-text>
+          </ui-col>
+          <ui-col span="11">touchui 让企业移动开发降低80%成本</ui-col>
+        </ui-row>
+      </ui-roller-item>
+    </ui-roller>
   </ui-page>
 </template>
 
@@ -11,13 +36,12 @@ export default {
     navigationBarTitleText: "61ScrollAnnouncementRoller"
   },
   data() {
-    return {}
+    return {};
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
 </style>
