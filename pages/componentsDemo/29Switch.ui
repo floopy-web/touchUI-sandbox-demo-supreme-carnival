@@ -1,7 +1,15 @@
 <!--29Switch-->
 <template>
   <ui-page>
-
+    <ui-view class="sample_title">禁用</ui-view>
+    <ui-row-list>
+      <ui-row>
+          <ui-switch title="初始值为false" disabled></ui-switch>
+      </ui-row>
+      <ui-row>
+          <ui-switch title="初始值为true" value="{{ true }}" disabled></ui-switch>
+      </ui-row>
+    </ui-row-list>
   </ui-page>
 </template>
 
@@ -11,13 +19,12 @@ export default {
     navigationBarTitleText: "29Switch"
   },
   data() {
-    return {}
+    return {};
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
 </style>

@@ -1,7 +1,9 @@
 <!--30Slider-->
 <template>
   <ui-page>
-
+    <ui-view class="sliderbox">
+        <ui-slider width="{{width-50}}" value="20" show-value="true"></ui-slider>
+    </ui-view>
   </ui-page>
 </template>
 
@@ -11,13 +13,22 @@ export default {
     navigationBarTitleText: "30Slider"
   },
   data() {
-    return {}
+    return{
+      width:ui.WIN_WIDTH,
+    }
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
+.sliderbox {
+  display: table;
+  padding: 20px;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  text-align: center;
+}
 </style>

@@ -1,23 +1,37 @@
 <!--25PopupModalLayerPopup-->
 <template>
   <ui-page>
-
+    <ui-button bindtap="openPopup1">默认popup（高度由内容决定）</ui-button>
+    <ui-popup value="{{show1}}" bindhide="log('hide')" bindshow="log('show')" bindinit="log('init')">
+      <ui-view class="popup0">
+        <ui-row border-bottom>
+          <ui-switch title="开关" ui:model="{{ show1 }}"></ui-switch>
+        </ui-row>
+      </ui-view>
+    </ui-popup>
   </ui-page>
 </template>
 
 <script>
 export default {
-  config: {
-    navigationBarTitleText: "25PopupModalLayerPopup"
-  },
   data() {
-    return {}
+    return {
+      show1: false
+    };
   },
-  methods: {},
-  mounted() {}
-}
+  methods: {
+    log(str) {
+      console.log(str);
+      if (str === "hide") {
+        this.show1 = false;
+      }
+    },
+    openPopup1() {
+      this.show1 = true;
+    }
+  }
+};
 </script>
 
 <style lang="less">
-
 </style>

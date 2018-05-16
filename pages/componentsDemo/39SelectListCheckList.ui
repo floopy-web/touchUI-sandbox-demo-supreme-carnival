@@ -1,7 +1,18 @@
 <!--39SelectListCheckList-->
 <template>
   <ui-page>
-
+    <ui-view class="sample_title">多选，label在右侧</ui-view>
+    <ui-divider>样式为方形</ui-divider>
+    <ui-check-list label-position="right" options="{{ countryList }}" ui:model="{{ checklist3 }}" ></ui-check-list>
+    <ui-divider>样式为圆形</ui-divider>
+    <ui-check-list label-position="right" options="{{ countryList }}" type="circle" ui:model="{{ checklist4 }}"></ui-check-list>
+      
+    <ui-view class="sample_title">单选</ui-view>
+    <ui-divider>label在左侧</ui-divider>
+    <ui-check-list max="1" label-position="left" options="{{ countryList }}" type="plain" ui:model="{{ checklist5 }}" ></ui-check-list>
+    <ui-divider>label在右侧</ui-divider>
+    <ui-check-list max="1" label-position="right" options="{{ countryList }}" type="circle" ui:model="{{ checklist6 }}" ></ui-check-list>
+  
   </ui-page>
 </template>
 
@@ -11,13 +22,19 @@ export default {
     navigationBarTitleText: "39SelectListCheckList"
   },
   data() {
-    return {}
+    return {
+      countryList: ["中国", "香港", "澳大利亚"],
+      checklist3: [],
+      checklist4: [],
+      countryList: ["中国", "香港", "澳大利亚"],
+      checklist5: [],
+      checklist6: []
+    };
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
 </style>

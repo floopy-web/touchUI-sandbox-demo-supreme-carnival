@@ -1,7 +1,19 @@
 <!--17AdvancedCarouselExSwiper-->
 <template>
   <ui-page>
-
+    <ui-view class="demo">
+      <ui-ex-swiper pagination autoplay="{{ autoplay }}">
+        <ui-ex-swiper-item class="bc_green">
+          1
+        </ui-ex-swiper-item>
+        <ui-ex-swiper-item class="bc_red">
+          2
+        </ui-ex-swiper-item>
+        <ui-ex-swiper-item class="bc_blue">
+          3
+        </ui-ex-swiper-item>
+      </ui-ex-swiper>
+    </ui-view>
   </ui-page>
 </template>
 
@@ -10,14 +22,37 @@ export default {
   config: {
     navigationBarTitleText: "17AdvancedCarouselExSwiper"
   },
-  data() {
-    return {}
+  data () {
+    return {
+      autoplay: {
+        delay: 1000
+      }
+    }
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
+.demo {
+  .container {
+    padding: 5px 10px;
+  }
+  .swiper-slide {
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    color: #fff;
+  }
+  .bc_green {
+    background-color: #7cc422;
+  }
+  .bc_red {
+    background-color: #ffa060;
+  }
+  .bc_blue {
+    background-color: #46d1e4;
+  }
+}
 </style>

@@ -1,7 +1,41 @@
 <!--9RasterListRowList-->
 <template>
   <ui-page>
-
+    <ui-row-list>
+      <ui-row height="50" border-indent>
+        <ui-col width="40" vertical-align="middle" align="center">
+            <ui-icon name="comment" size="20" color="#545454"></ui-icon>
+        </ui-col>
+        <ui-col class="text" >
+          飞行模式
+        </ui-col>
+        <ui-col width="40" vertical-align="middle">
+          <ui-icon name="arrow-right"></ui-icon>
+        </ui-col>
+      </ui-row>
+      <ui-row height="50">
+        <ui-col width="40" vertical-align="middle" align="center">
+          <ui-icon name="comment" size="20" color="#545454"></ui-icon>
+        </ui-col>
+        <ui-col class="text">
+          Wi-Fi
+        </ui-col>
+        <ui-col width="40" vertical-align="middle">
+          <ui-icon name="arrow-right"></ui-icon>
+        </ui-col>
+      </ui-row>
+      <ui-row height="50">
+        <ui-col width="40" vertical-align="middle" align="center">
+          <ui-icon name="comment" size="20" color="#545454"></ui-icon>
+        </ui-col>
+        <ui-col class="text">
+          蓝牙
+        </ui-col>
+        <ui-col width="40" vertical-align="middle">
+          <ui-icon name="arrow-right"></ui-icon>
+        </ui-col>
+      </ui-row>
+    </ui-row-list>
   </ui-page>
 </template>
 
@@ -11,13 +45,12 @@ export default {
     navigationBarTitleText: "9RasterListRowList"
   },
   data() {
-    return {}
+    return {};
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
 </style>

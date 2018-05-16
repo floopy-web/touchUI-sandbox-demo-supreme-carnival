@@ -2,22 +2,42 @@
 <template>
   <ui-page>
 
+    <ui-divider>省市区选择</ui-divider>
+    <ui-picker-view mode="region" value="{{ cityValue1 }}" range="{{ cityValue }}" bindchange="handleChange6"></ui-picker-view>
+    <ui-button  bindtap="resetPicker4">将地区设置为北京市丰台区</ui-button>
+
+    <ui-divider>省市选择</ui-divider>
+    <ui-picker-view mode="region" value="{{ cityValue2 }}" range="{{ cityValue }}" hide-district bindchange="handleChange7"></ui-picker-view>
+    <ui-button  bindtap="resetPicker5">将地区设置为广东省深圳市</ui-button>
   </ui-page>
 </template>
 
 <script>
+import cityList from "#/static/data/address";
 export default {
-  config: {
-    navigationBarTitleText: "41ExplicitSelectorPickerView"
+  methods: {
+    handleChange6(val) {
+      this.cityValue1 = val;
+    },
+    handleChange7(val) {
+      this.cityValue2 = val;
+    },
+    resetPicker4() {
+      this.cityValue1 = ["110000", "110100", "110106"];
+    },
+    resetPicker5() {
+      this.cityValue2 = ["440000", "440300"];
+    }
   },
   data() {
-    return {}
-  },
-  methods: {},
-  mounted() {}
-}
+    return {
+      cityValue: cityList,
+      cityValue1: ["110000", "110107"],
+      cityValue2: ["330000", "330100"]
+    };
+  }
+};
 </script>
 
 <style lang="less">
-
 </style>

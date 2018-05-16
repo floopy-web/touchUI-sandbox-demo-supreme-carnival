@@ -1,7 +1,8 @@
 <!--32NativeInputBox-->
 <template>
   <ui-page>
-
+    <ui-input placeholder-class="red-placeholder" placeholder="占位符字体是红色的"></ui-input>
+    <ui-input placeholder-style="color:red" placeholder="占位符字体是红色的"></ui-input>
   </ui-page>
 </template>
 
@@ -11,13 +12,24 @@ export default {
     navigationBarTitleText: "32NativeInputBox"
   },
   data() {
-    return {}
+    return {};
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
+.red-placeholder::-webkit-input-placeholder {
+  color: #f00;
+}
+.self-input {
+  .phone1 {
+    border-bottom: 1px solid #ccc;
+  }
+  .ui-input {
+    border: 0;
+    background-color: transparent;
+  }
+}
 </style>

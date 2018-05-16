@@ -1,7 +1,18 @@
 <!--38Checkbox-->
 <template>
   <ui-page>
-
+    <ui-view class="demo">
+      <ui-view class="demo-block">
+        <ui-view class="sample_title">文字在右</ui-view>
+        <ui-view class="demo-content">
+          <ui-checkbox-group>
+            <ui-label class="checkbox" ui:for="{{items}}">
+              <ui-checkbox value="{{item.name}}" checked="{{ item.checked }}" ></ui-checkbox>                    {{item.value}}
+            </ui-label>
+          </ui-checkbox-group>
+        </ui-view>
+      </ui-view>
+    </ui-view>
   </ui-page>
 </template>
 
@@ -11,13 +22,35 @@ export default {
     navigationBarTitleText: "38Checkbox"
   },
   data() {
-    return {}
+    return {
+      items: [
+        { name: "USA", value: "美国" },
+        { name: "CHN", value: "中国", checked: true },
+        { name: "BRA", value: "巴西", checked: true }
+      ]
+    };
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
+.demo-content {
+  .ui-checkbox-group {
+    background-color: #fff;
+  }
 
+  .checkbox {
+    display: block;
+    margin-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+
+    &:not(:first-of-type) {
+      .mix-1px(1, 0, 0, 0, #d4d4d4);
+    }
+  }
+}
 </style>

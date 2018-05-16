@@ -1,7 +1,31 @@
 <!--33VirtualinputBox-->
 <template>
   <ui-page>
-
+    <ui-view class="sample_content self-input">
+      <ui-row class="phone-box" style="{{{border:borderstyle1,backgroundColor:bgcolor1}}}">
+        <ui-col width="60">
+          <ui-view class="phone">
+            <ui-view class="phone-3">
+              <ui-text block class="phone-1">+86</ui-text>
+              <ui-text block class="phone-2">中国</ui-text>
+            </ui-view>
+            <ui-icon name="slide_down" size="8" color="#fff"></ui-icon>
+            <ui-text class="line phone-0"></ui-text>
+          </ui-view>
+        </ui-col>
+        <ui-col space-left="8">
+          <ui-virtual-input type="number" bindfocus="focus('phone')"  bindblur="blur('phone')" cursor-color="#fff" placeholder="请输入手机号码" placeholder-class="phoneclass"></ui-virtual-input>
+        </ui-col>
+      </ui-row>
+      <ui-row class="phone-box" style="{{{border:borderstyle2,backgroundColor:bgcolor2}}}">
+        <ui-col width="60" align="center" vertical-align="middle">
+          <ui-text class="pwd">密码</ui-text>
+        </ui-col>
+        <ui-col>
+          <ui-virtual-input bindfocus="focus('pwd')" bindblur="blur('pwd')" cursor-color="#fff" placeholder="请输入密码" placeholder-class="phoneclass" type="password"></ui-virtual-input>
+        </ui-col>
+      </ui-row>
+    </ui-view>
   </ui-page>
 </template>
 
@@ -11,13 +35,80 @@ export default {
     navigationBarTitleText: "33VirtualinputBox"
   },
   data() {
-    return {}
+    return {};
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
+.self-input {
+  background-color: #45b3fc;
+  .phone-box {
+    margin: 5px;
+    border-radius: 20px;
+  }
+  .ui-virtual-input {
+    border: 0;
+    background-color: transparent;
+    color: #fff;
+  }
+  .ui-virtual-input,
+  .ui-virtual-input-inner {
+    height: 40px;
+    line-height: 40px;
+  }
+  .icon-view-password {
+    color: #fff;
+  }
+  .weui-icon-clear {
+    color: #fff;
+  }
+  .phoneclass {
+    color: #86d3fd;
+    padding-left: 10px;
+  }
+  .phone {
+    position: relative;
+    height: 40px;
 
+    .phone-0,
+    .ui-icon {
+      position: absolute;
+      color: #92c7fc;
+      left: 25px;
+    }
+    .phone-1 {
+      font-size: 16px;
+      color: #f7ffff;
+    }
+    .phone-2 {
+      font-size: 8px;
+      line-height: 0;
+      color: #c3f2f8;
+    }
+    .phone-3 {
+      text-align: right;
+      position: absolute;
+      left: 22px;
+      top: -4px;
+    }
+    .ui-icon {
+      left: 55px;
+      top: 4px;
+    }
+    .line {
+      left: 74px;
+      width: 1px;
+      height: 24px;
+      background-color: #92c7fc;
+      top: 7px;
+    }
+  }
+  .pwd {
+    color: #dbfeff;
+    padding-left: 10px;
+  }
+}
 </style>

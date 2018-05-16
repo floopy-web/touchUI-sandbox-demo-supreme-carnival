@@ -1,23 +1,46 @@
 <!--28Button-->
 <template>
   <ui-page>
-
+    <ui-view class="sample_title">自定义样式</ui-view>
+    <ui-view class="win">
+      <ui-button class="button-style-demo1">立即预订</ui-button>
+      <ui-button type="primary" loading="{{isLoading}}" bindtap="submitHandler" disabled="{{isDisable}}">{{buttonText}}</ui-button>
+    </ui-view>
   </ui-page>
 </template>
 
 <script>
 export default {
-  config: {
-    navigationBarTitleText: "28Button"
-  },
   data() {
-    return {}
+    return {
+      isLoading: false,
+      buttonText: "提交",
+      isDisable: false
+    };
   },
-  methods: {},
-  mounted() {}
-}
+  mounted() {},
+  methods: {
+    submitHandler() {
+      this.isLoading = true;
+      this.buttonText = "提交中...";
+      this.isDisable = true;
+      var that = this;
+      setTimeout(function() {
+        that.isLoading = false;
+        that.buttonText = "提交";
+        that.isDisable = false;
+      }, 1000);
+    }
+  }
+};
 </script>
 
 <style lang="less">
-
+.button-style-demo1 {
+  background-color: #c01920;
+  border-radius: 20px;
+  border-color: #c01920;
+  box-shadow: 3px 3px 8px #e57a7e;
+  color: #fff;
+}
 </style>

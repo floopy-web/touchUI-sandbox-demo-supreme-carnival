@@ -1,23 +1,63 @@
 <!--26PopupPopover-->
 <template>
   <ui-page>
-
+    <ui-button type="primary" bindtap="showPopover1">打开弹出菜单</ui-button>
+    <ui-button type="primary" bindtap="showPopover2">打开弹出菜单</ui-button>
+    <ui-popover ref="popover">
+      <ui-view>
+        <ui-view bindtap="hidePopover">Item 1</ui-view>
+        <ui-view>Item 2</ui-view>
+      </ui-view>
+    </ui-popover>
   </ui-page>
 </template>
 
 <script>
 export default {
-  config: {
-    navigationBarTitleText: "26PopupPopover"
-  },
-  data() {
-    return {}
-  },
-  methods: {},
-  mounted() {}
-}
+  methods: {
+    showPopover1(e) {
+      this.$refs.popover.showPopover({
+        el: e.target,
+        position: "bottom"
+      });
+    },
+    showPopover2(e) {
+      this.$refs.popover.showPopover({
+        el: e.target,
+        position: "top",
+        effect: "scale"
+      });
+    },
+    hidePopover() {
+      this.$refs.popover.hidePopover();
+    }
+  }
+};
 </script>
 
 <style lang="less">
+.ui-divider {
+  padding: 40px 0;
+}
 
+.text {
+  padding: 5px;
+  width: 60px;
+  border-bottom: 1px dashed #39f;
+  text-align: center;
+}
+
+.ui-popover-overlay {
+  padding: 0;
+  width: 120px;
+}
+.touch_end {
+  background: #eee;
+}
+.popover_item {
+  padding: 0 10px;
+  &:active {
+    background-color: #eee;
+  }
+}
 </style>
