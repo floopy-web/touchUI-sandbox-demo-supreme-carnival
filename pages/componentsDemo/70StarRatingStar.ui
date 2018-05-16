@@ -1,6 +1,13 @@
 <!--70StarRatingStar-->
 <template>
   <ui-page>
+    Interactable
+    <ui-star></ui-star>
+    0.5 stars
+    <ui-star half=true></ui-star>
+    Sad to smiley...
+    <ui-star data="{{stars1}}"></ui-star>
+
 
   </ui-page>
 </template>
@@ -11,13 +18,17 @@ export default {
     navigationBarTitleText: "70StarRatingStar"
   },
   data() {
-    return {}
+    return {
+      stars1: {
+        normalSrc: require("#/images/star/sad.png"),
+        selectedSrc: require("#/images/star/smile.png")
+      }
+    };
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
 </style>

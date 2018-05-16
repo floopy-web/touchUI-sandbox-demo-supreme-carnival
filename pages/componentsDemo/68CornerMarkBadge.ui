@@ -1,7 +1,19 @@
 <!--68CornerMarkBadge-->
 <template>
   <ui-page>
+    <ui-badge text="62" class="green"></ui-badge>
 
+    <ui-row height="80">
+      <ui-col vertical-align="middle" span="8">
+          自定义样式，白色边框和背景
+      </ui-col>
+      <ui-col align="right" vertical-align="middle" space-right="10">
+      <ui-view class="maoyan">
+          <ui-image src="{{ require('#/images/maoyan.png') }}" width="48"></ui-image>
+          <ui-badge class="icon-badge" text="5折"></ui-badge>
+      </ui-view>
+      </ui-col>
+    </ui-row>
   </ui-page>
 </template>
 
@@ -11,13 +23,28 @@ export default {
     navigationBarTitleText: "68CornerMarkBadge"
   },
   data() {
-    return {}
+    return {};
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
+.green {
+  background-color: #00bc32;
+}
+.maoyan {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  margin: 10px;
+  .icon-badge {
+    background-color: #39f;
+    position: absolute;
+    top: -5px;
+    right: -15px;
+    border: 1px solid #fff;
+  }
+}
 </style>

@@ -1,23 +1,102 @@
 <!--77MultilevelScheduleRingMultiCircular-->
 <template>
   <ui-page>
+    <ui-view class="circular1">
+      <ui-view class="circular1_content">
+        <ui-multi-circular
+            width="250"
+            left="150"
+            value="{{ value1 }}"
+            gap="1"
+            color-array="{{ colorArray }}"
+            line-width="20"
+            background-color="darken"
+            labels="{{ labels }}"
+            bindclickedindex="getCircular"
+            hover-style="darken"
+            ></ui-multi-circular>
+        <ui-view class="index">{{ index }}</ui-view>
+      </ui-view>
+    </ui-view>
 
+    <ui-view class="circular1">
+      <ui-view class="circular4_content">
+        <ui-multi-circular
+            width="275"
+            height="290"
+            left="175"
+            top="120"
+            value="{{ value4 }}"
+            gap="10"
+            line-width="5"
+            color-array="{{ colorArray4 }}"
+            labels="{{ labels4 }}"
+            have-background="false"
+            line-cap="butt"
+            ></ui-multi-circular>
+      </ui-view>
+    </ui-view>
   </ui-page>
 </template>
 
 <script>
 export default {
-  config: {
-    navigationBarTitleText: "77MultilevelScheduleRingMultiCircular"
-  },
   data() {
-    return {}
+    return {
+      value1: [40, 80, 70],
+      colorArray: ["#F40064", "#A9FF09", "#3EFDC5"],
+      labels: ["站立", "锻炼", "活动"],
+      index: "",
+      value4: [70, 60, 50, 40, 30],
+      colorArray4: ["#3EFEC4", "#33D9DF", "#30CEE5", "#28B3E9", "#2196E2"],
+      backgroundColor4: "rgba(255,255,255,0)",
+      labels4: ["成本输出", "数量", "价格", "盈利", "盈利"]
+    };
   },
-  methods: {},
-  mounted() {}
-}
+  methods: {
+    getCircular(val) {
+      console.log(val);
+      // 得到点击的环的index
+      this.index = this.value1[val];
+    }
+  }
+};
 </script>
 
 <style lang="less">
-
+.circular1 {
+  position: relative;
+  padding: 20px 0;
+  .mix-flex-center();
+  background-color: #000;
+  .circular1_content {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    .index {
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      color: #fff;
+      font-size: 14px;
+    }
+  }
+  .circular4_content {
+    width: 275px;
+    height: 235px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  &.circular2 {
+    background-color: #0a1a33;
+    .ui-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 14px;
+      color: #bfbdbd;
+    }
+  }
+}
 </style>
