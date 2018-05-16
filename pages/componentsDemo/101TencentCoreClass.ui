@@ -6,18 +6,37 @@
 </template>
 
 <script>
+// 引入SDK核心类
+// Not available
+// var QQMapWX = require("qqmap-touchui.js");
+// 实例化API核心类
+var demo = new QQMapWX({
+  key: "开发密钥（key）" // 必填
+});
+// 调用接口
+demo.search({
+  keyword: "酒店",
+  success: function(res) {
+    console.log(res.status, res.message);
+  },
+  fail: function(res) {
+    console.log(res.status, res.message);
+  },
+  complete: function(res) {
+    console.log(res.status, res.message);
+  }
+});
 export default {
   config: {
     navigationBarTitleText: "101TencentCoreClass"
   },
   data() {
-    return {}
+    return {};
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
 </style>
