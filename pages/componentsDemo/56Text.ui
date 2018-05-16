@@ -1,7 +1,10 @@
 <!--56Text-->
 <template>
   <ui-page>
-
+    <ui-view class="sample_content">
+      <ui-text class="price">16元</ui-text>
+      <ui-text class="price2">门市价:30元</ui-text>
+    </ui-view>
   </ui-page>
 </template>
 

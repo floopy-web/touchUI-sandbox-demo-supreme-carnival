@@ -1,7 +1,18 @@
 <!--43CascadeSelectionCascader-->
 <template>
   <ui-page>
-
+    <ui-view class="sample_title">自定义颜色</ui-view>
+    <ui-row height="40" border-top border-bottom>
+        <ui-col span="3" vertical-align="middle" align="right" space-right="10">
+            附近
+        </ui-col>
+        <ui-col span="9" bindtap="showPop4" vertical-align="middle">
+            {{title4}}
+        </ui-col>
+    </ui-row>
+    <ui-popup ui:model="{{show4}}" position="bottom" width="100%" height="300">
+        <ui-cascader bindselected="handleselected4" data="{{data2}}" theme-color="red"></ui-cascader>
+    </ui-popup>
   </ui-page>
 </template>
 
@@ -11,13 +22,81 @@ export default {
     navigationBarTitleText: "43CascadeSelectionCascader"
   },
   data() {
-    return {}
+    return {
+      show4: false,
+      title4: "请选择",
+      data2: [
+        {
+          name: "美食",
+          value: "food",
+          children: [
+            {
+              name: "火锅",
+              value: "chafing dish",
+              children: [
+                { name: "川味火锅", value: "SiChuan chafing dish" },
+                { name: "老北京火锅", value: "Beijing chafing dish" },
+                { name: "牛肉火锅", value: "Beef chafing dish" }
+              ]
+            },
+            {
+              name: "西餐",
+              value: "western food",
+              children: [
+                { name: "意大利菜", value: "Italy food" },
+                { name: "法国菜", value: "France food" },
+                { name: "汉堡", value: "Hamburg" }
+              ]
+            }
+          ]
+        },
+        {
+          name: "旅游",
+          value: "tour",
+          children: [
+            {
+              name: "周边游",
+              value: "tour around",
+              children: [
+                { name: "景点", value: "Scenic spot" },
+                { name: "公园", value: "Park" },
+                { name: "名胜古迹", value: "Historical sites" }
+              ]
+            },
+            {
+              name: "海外游",
+              value: "tour aboard",
+              children: [
+                { name: "美国游", value: "American tour" },
+                { name: "欧洲游", value: "Europe tour" },
+                { name: "东南亚游", value: "Southease Asia tour" }
+              ]
+            }
+          ]
+        }
+      ]
+    };
   },
-  methods: {},
+  methods: {
+    showPop4() {
+      this.setData({
+        show4: true
+      });
+    },
+    handleselected4(data) {
+      this.title4 = "";
+      for (var i = 0; i < data.length; i++) {
+        this.title4 += data[i].name + " ";
+      }
+      this.setData({
+        show4: false,
+        title4: this.title4
+      });
+    }
+  },
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
 </style>

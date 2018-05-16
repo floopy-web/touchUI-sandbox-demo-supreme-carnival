@@ -1,7 +1,22 @@
 <!--53ListOfDataListView-->
 <template>
   <ui-page>
+    <ui-list-view config="{{ config }}"> 
+      <template scope="props">
+        <ui-list-view-item>
+          <ui-text>{{props.item.titlename}}</ui-text>
+        </ui-list-view-item>
+      </template>
+    </ui-list-view>
 
+    .
+    <ui-list-view data="{{ guesslikes }}"> 
+      <template scope="props">
+        <ui-list-view-item>
+          <ui-text>{{props.item.titlename}}</ui-text>
+        </ui-list-view-item>
+      </template>
+    </ui-list-view>
   </ui-page>
 </template>
 
@@ -11,13 +26,25 @@ export default {
     navigationBarTitleText: "53ListOfDataListView"
   },
   data() {
-    return {}
+    return {
+      guesslikes: [
+        {
+          titlename: "旺顺阁鱼头泡饼",
+          titleinfo: "[王府井/东单]1斤鱼头券3选1",
+          titlem: "677m"
+        },
+        {
+          titlename: "吉野家",
+          titleinfo: "[149店通用]吉汁烧鱼+茶碗蒸+中可乐1份",
+          titlem: "1237m"
+        }
+      ]
+    };
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
 </style>

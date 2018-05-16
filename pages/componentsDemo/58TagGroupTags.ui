@@ -1,7 +1,7 @@
 <!--58TagGroupTags-->
 <template>
   <ui-page>
-
+    <ui-tags data="{{list7}}" bindchange="singleTap3"></ui-tags>
   </ui-page>
 </template>
 
@@ -11,13 +11,127 @@ export default {
     navigationBarTitleText: "58TagGroupTags"
   },
   data() {
-    return {}
+    return {
+      list7: [
+        {
+          text: "新用户优惠",
+          tagClass: "tag-before-5",
+          tagSelectedClass: "tag-after-6",
+          checked: true,
+          badge: [
+            {
+              "badge-text": "新",
+              "badge-class": "badge-class-6"
+            }
+          ]
+        },
+        {
+          text: "特价商品",
+          tagClass: "tag-before-5",
+          tagSelectedClass: "tag-after-6",
+          checked: false,
+          badge: [
+            {
+              "badge-text": "特",
+              "badge-class": "badge-class-7"
+            }
+          ]
+        },
+        {
+          text: "下单立减",
+          tagClass: "tag-before-5",
+          tagSelectedClass: "tag-after-6",
+          checked: false,
+          badge: [
+            {
+              "badge-text": "减",
+              "badge-class": "badge-class-8"
+            }
+          ]
+        },
+        {
+          text: "赠品优惠",
+          tagClass: "tag-before-5",
+          tagSelectedClass: "tag-after-6",
+          checked: false,
+          badge: [
+            {
+              "badge-text": "赠",
+              "badge-class": "badge-class-9"
+            }
+          ]
+        },
+        {
+          text: "下单返券",
+          tagClass: "tag-before-5",
+          tagSelectedClass: "tag-after-6",
+          checked: false,
+          badge: [
+            {
+              "badge-text": "返",
+              "badge-class": "badge-class-10"
+            }
+          ]
+        },
+        {
+          text: "进店领券",
+          tagClass: "tag-before-5",
+          tagSelectedClass: "tag-after-6",
+          checked: false,
+          badge: [
+            {
+              "badge-text": "领",
+              "badge-class": "badge-class-11"
+            }
+          ]
+        }
+      ]
+    };
   },
-  methods: {},
+
+  methods: {
+    singleTap3(opt) {
+      this.list7.forEach((item, index) => {
+        item.checked = index === opt;
+      });
+    }
+  },
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
+.tag-before-5 {
+  background: #f7f7f7;
+  color: #333;
+  padding: 0 5px;
+  text-align: center;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 20px;
+  border-radius: 30px;
+}
+.tag-after-6 {
+  background: #e1eaef;
+  color: #333;
+  padding: 0 5px;
+  text-align: center;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 20px;
+  border-radius: 30px;
+  .mix-1px(1, 1, 1, 1, #3399ff);
+  &:before {
+    border-radius: 30px;
+  }
+}
+.badge-class-11 {
+  color: #ffac2a;
+  border: 1px solid #ffac2a;
+  background-color: #fff;
+}
 </style>
