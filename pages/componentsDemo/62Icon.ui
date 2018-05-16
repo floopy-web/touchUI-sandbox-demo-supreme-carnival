@@ -1,7 +1,15 @@
 <!--62Icon-->
 <template>
   <ui-page>
-
+    svg images
+    <ui-row>
+      <ui-col align="center" vertical-align="middle">
+        <ui-image src="{{ require('#/images/play.svg') }}" width="48"></ui-image>
+      </ui-col>
+      <ui-col align="center" vertical-align="middle">
+        <ui-image src="{{ require('#/images/pause.svg') }}" width="48"></ui-image>
+      </ui-col>
+    </ui-row>
   </ui-page>
 </template>
 
@@ -11,13 +19,12 @@ export default {
     navigationBarTitleText: "62Icon"
   },
   data() {
-    return {}
+    return {};
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
 </style>

@@ -1,23 +1,66 @@
 <!--63PictureImage-->
 <template>
   <ui-page>
-
+    <ui-view ui:for="{{ list }}">
+      <ui-image
+        class="img"
+        src="{{item.src}}"
+        lazy-load
+        width="300"
+        height="200"
+        >
+      </ui-image>
+    </ui-view>
   </ui-page>
 </template>
 
 <script>
 export default {
-  config: {
-    navigationBarTitleText: "63PictureImage"
-  },
   data() {
-    return {}
+    return {
+      list: [
+        {
+          src: "https://o5omsejde.qnssl.com/demo/test1.jpg"
+        },
+        {
+          src: "https://o5omsejde.qnssl.com/demo/test2.jpg"
+        },
+        {
+          src: "https://o5omsejde.qnssl.com/demo/test1.jpg"
+        },
+        {
+          src: "https://o5omsejde.qnssl.com/demo/test2.jpg"
+        },
+        {
+          src: "https://o5omsejde.qnssl.com/demo/test1.jpg"
+        },
+        {
+          src: "https://o5omsejde.qnssl.com/demo/test2.jpg"
+        },
+        {
+          src: "https://o5omsejde.qnssl.com/demo/test1.jpg"
+        },
+        {
+          src: "https://o5omsejde.qnssl.com/demo/test2.jpg"
+        },
+        {
+          src: "https://o5omsejde.qnssl.com/demo/test1.jpg"
+        },
+        {
+          src: "https://o5omsejde.qnssl.com/demo/test2.jpg"
+        },
+        {
+          src: "https://o5omsejde.qnssl.com/demo/test1.jpg"
+        },
+        {
+          src: "https://o5omsejde.qnssl.com/demo/test2.jpg"
+        }
+      ]
+    };
   },
-  methods: {},
-  mounted() {}
-}
+  methods: {}
+};
 </script>
 
 <style lang="less">
-
 </style>
