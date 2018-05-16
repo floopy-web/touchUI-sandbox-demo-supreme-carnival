@@ -1,7 +1,8 @@
 <!--83LineChartLine-->
 <template>
   <ui-page>
-
+    <ui-line ref="line" value="{{data}}" height="{{200}}" width="{{winWidth}}"></ui-line>
+<ui-button bindtap="exprotCharts('line','lineChart','TouchUI Chart')">导出</ui-button>
   </ui-page>
 </template>
 
@@ -11,7 +12,9 @@ export default {
     navigationBarTitleText: "83LineChartLine"
   },
   data() {
-    return {}
+    return {
+        
+    };
   },
   methods: {},
   mounted() {}
@@ -19,5 +22,4 @@ export default {
 </script>
 
 <style lang="less">
-
 </style>

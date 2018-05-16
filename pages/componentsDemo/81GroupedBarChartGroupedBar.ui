@@ -11,7 +11,9 @@ export default {
     navigationBarTitleText: "81GroupedBarChartGroupedBar"
   },
   data() {
-    return {}
+    return {
+      
+    }
   },
   methods: {},
   mounted() {}

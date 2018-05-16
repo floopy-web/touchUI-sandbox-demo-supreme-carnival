@@ -2,6 +2,28 @@
 <template>
   <ui-page>
 
+    <ui-view class="sample_block">
+      <ui-view class="sample_title">渐变色</ui-view>
+      <ui-view class="sample_content">
+        <ui-progress percent="70" stroke-width="10" active-color="#9266FB,#F55691"></ui-progress>
+        <ui-progress percent="80" stroke-width="10" active-color="#FC8609, #f40" background-color="#FCD9C1"></ui-progress>
+      </ui-view>
+    </ui-view>
+    <ui-view class="sample_block">
+      <ui-view class="sample_title">初始动画效果</ui-view>
+      <ui-view class="sample_content">
+        <ui-progress percent="50" show-info active active-color="#20a0ff"></ui-progress>
+      </ui-view>
+    </ui-view>
+
+    <ui-view class="sample_block">
+      <ui-view class="sample_title">进度条粗细</ui-view>
+      <ui-view class="sample_content">
+        <ui-progress percent="50" show-info active stroke-width="1"></ui-progress>
+        <ui-progress percent="60" show-info active stroke-width="2" active-color="#20a0ff"></ui-progress>
+        <ui-progress percent="70" show-info active stroke-width="3" active-color="#ff4949"></ui-progress>
+      </ui-view>
+    </ui-view>  
   </ui-page>
 </template>
 
@@ -11,13 +33,19 @@ export default {
     navigationBarTitleText: "79ProgressBarProgress"
   },
   data() {
-    return {}
+    return {};
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
+.sample_block {
+  font-size: 14px;
+}
 
+.ui-progress {
+  margin: 15px 0;
+}
 </style>

@@ -1,7 +1,27 @@
 <!--91ContrastFigureContrast-->
 <template>
   <ui-page>
-
+    
+    <ui-view class="sample_content">
+      <ui-row height="30" class="text">
+        <ui-col vertical-align="middle" align="left">
+            <ui-view class="left">
+                54.3%<ui-text>男</ui-text>
+            </ui-view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="right">
+            <ui-view class="right">
+                <ui-text>女</ui-text>45.7%
+            </ui-view>
+        </ui-col>
+      </ui-row>
+      <ui-contrast
+                  value="{{ contrastValue }}"
+                  color="{{ colorArry }}"
+                  gap="true"
+                  >
+      </ui-contrast>
+    </ui-view>
   </ui-page>
 </template>
 
@@ -11,13 +31,70 @@ export default {
     navigationBarTitleText: "91ContrastFigureContrast"
   },
   data() {
-    return {}
+    return {};
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
+.text {
+  .left {
+    font-size: 20px;
+    color: #65a2ed;
+  }
+  .ui-text {
+    font-size: 14px;
+  }
+  .right {
+    font-size: 20px;
+    color: #f6564a;
+  }
+  &.text2 {
+    .left {
+      color: #4ecea6;
+    }
+    .right {
+      color: #a8db3d;
+    }
+  }
+  &.text3 {
+    width: 100%;
+    .left {
+      color: #555557;
+    }
+    .right {
+      color: #555557;
+    }
+  }
+}
+.name {
+  font-size: 16px;
+}
+.right_content {
+  width: 100%;
+}
+.praise_wrap,
+.tread_wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid #f1961c;
+}
+.tread_wrap {
+  border: 1px solid #3c7ada;
+}
+.contrast_wrap {
+  padding: 10px;
+  .contrast {
+    font-size: 12px;
+    color: #58596a;
+  }
+  .ui-contrast-bar {
+    margin-bottom: 5px;
+  }
+}
 </style>

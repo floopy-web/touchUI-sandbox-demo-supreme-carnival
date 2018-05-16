@@ -1,7 +1,38 @@
 <!--80BarChartBar-->
 <template>
   <ui-page>
-
+    <ui-view style="text-align: center">
+      <ui-bar
+          value="{{bar1.data}}"
+          height="200"
+          width="{{width}}"
+          is-animated="true"
+          between-bars-padding = 0.3
+          is-darker="true"
+          color-schema="{{bar1.colorSchema}}"
+          bindcustomclick="customclick"
+          numberFormat="%"
+      ></ui-bar>
+      <ui-text block>{{clickText}}</ui-text>
+    </ui-view>
+     Bar charts
+    <ui-view style="">
+      <ui-bar
+          value="{{bar2.data}}"
+          height="200"
+          width="{{width}}"
+          is-animated="true"
+          between-bars-padding = 0.3
+          color-schema="{{bar2.colorSchema}}">
+      </ui-bar>
+      <ui-legend
+          value="{{legendData.legend}}"
+          width="{{width-100}}"
+          height="300"
+          is-animated="true"
+          number-format=".1f">
+      </ui-legend>
+    </ui-view>
   </ui-page>
 </template>
 
@@ -11,13 +42,89 @@ export default {
     navigationBarTitleText: "80BarChartBar"
   },
   data() {
-    return {}
+    return {
+      width: ui.WIN_WIDTH,
+      clickText: "",
+      width: ui.WIN_WIDTH,
+      bar1: {
+        margin: {
+          left: 60,
+          right: 20,
+          top: 20,
+          bottom: 20
+        },
+        colorSchema: ["#ffdd83"],
+        data: [
+          {
+            value: 1236,
+            name: "1月"
+          },
+          {
+            value: 334,
+            name: "2月"
+          },
+          {
+            value: 535,
+            name: "3月"
+          },
+          {
+            value: 413,
+            name: "4月"
+          },
+          {
+            value: 175,
+            name: "5月"
+          },
+          {
+            value: 623,
+            name: "6月"
+          }
+        ]
+      },
+      legendData: {
+        legend: [
+          {
+            id: 1,
+            quantity: 134,
+            name: '1月'
+          },
+          {
+            id: 2,
+            quantity: 100,
+            name: '2月'
+          },
+          {
+            id: 3,
+            quantity: 234,
+            name: '3月'
+          },
+          {
+            id: 4,
+            quantity: 345,
+            name: '4月'
+          },
+          {
+            id: 4,
+            quantity: 432,
+            name: '5月'
+          },
+          {
+            id: 4,
+            quantity: 341,
+            name: '6月'
+          }
+        ]
+      }
+    }
   },
-  methods: {},
+  methods: {
+    customclick(e) {
+      this.clickText = `点击的是${e.name},值为：${e.value}人`;
+    }
+  },
   mounted() {}
-}
+};
 </script>
 
 <style lang="less">
-
 </style>
